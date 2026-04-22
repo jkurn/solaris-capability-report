@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Solaris AI Workforce Scorecard — Apex Financial Group · Q2 2026</title>
-  <meta name="description" content="Solaris AI Workforce Capability Scorecard for Apex Financial Group. Methodology synthesised from AIRI (AI Singapore), ESI ThoughtLab (n=1,200), Element AI Maturity Framework, and O'Reilly Enterprise Adoption." />
-  <meta property="og:title" content="Solaris AI Workforce Scorecard — Apex Financial Group" />
-  <meta property="og:description" content="Q2 2026 Baseline Assessment. Apex scored D / 52.4 — AI Aware tier. Powered by Solaris by Build Club." />
-  <meta property="og:type" content="website" />
+  <title>Solaris AI Workforce Report — Compare formats</title>
+  <meta name="description" content="Two formats of the Solaris AI Workforce Capability Report — a long-scroll landing page and a paper-style scorecard. Compare side-by-side." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -20,16 +17,11 @@
           },
           colors: {
             cream: { 50: '#FFFCFA', 100: '#F5EFE9', 200: '#EBE2D2' },
-            brown: { 950: '#1A0F00', 900: '#2E1A00', 800: '#502C00', 700: '#6C3B00', 600: '#8A4F1A' },
-            sun: { 400: '#FFE388', 500: '#FFDF68', 600: '#FFD94F' },
-            ember: { 400: '#FFB590', 500: '#FFA166', 600: '#FF7A1F' },
-            cobalt: { 400: '#33ADFF', 500: '#0099FF', 600: '#0077CC' },
+            brown: { 950: '#1A0F00', 900: '#2E1A00', 800: '#502C00', 700: '#6C3B00' },
+            sun: { 400: '#FFE388', 500: '#FFDF68' },
+            ember: { 500: '#FFA166', 600: '#FF7A1F' },
+            cobalt: { 500: '#0099FF', 600: '#0077CC' },
             mint: '#BAE8D0',
-            sky: '#B5E3FF',
-            peach: '#FFD4B5',
-          },
-          boxShadow: {
-            'paper': '0 1px 2px rgba(80,44,0,0.04), 0 8px 24px rgba(80,44,0,0.06), 0 24px 48px rgba(80,44,0,0.04)',
           },
         },
       },
@@ -37,91 +29,31 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&family=Inter:wght@400;500;600;700;800;900&family=Fragment+Mono&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&family=Inter:wght@400;500;600;700;900&family=Fragment+Mono&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: 'Inter', system-ui, sans-serif; background: #EBE2D2; color: #502C00; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #FFFCFA; color: #502C00; }
     .display { font-family: 'Hedvig Letters Sans', Inter, serif; letter-spacing: -0.015em; line-height: 1.05; }
     .mono { font-family: 'Fragment Mono', monospace; }
-
-    /* Paper sheet — A4-ish proportions, white-ish cream */
-    .paper {
-      background: #FFFCFA;
-      max-width: 920px;
-      margin: 32px auto;
-      box-shadow: 0 1px 2px rgba(80,44,0,0.04), 0 8px 24px rgba(80,44,0,0.06), 0 24px 48px rgba(80,44,0,0.04);
-      position: relative;
-      overflow: hidden;
-    }
-    .paper-inner {
-      padding: 56px 64px 88px 64px;
-      position: relative;
-      z-index: 2;
-    }
-    .paper-header {
-      position: absolute; top: 0; left: 0; right: 0;
-      padding: 18px 64px;
-      display: flex; justify-content: space-between; align-items: center;
-      border-bottom: 1px solid rgba(80,44,0,0.08);
-      background: rgba(255,252,250,0.95); backdrop-filter: blur(6px);
-      z-index: 5;
-      font-size: 11px;
-    }
-    .paper-footer {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 14px 64px;
-      display: flex; justify-content: space-between; align-items: center;
-      border-top: 1px solid rgba(80,44,0,0.08);
-      font-size: 10px;
-      letter-spacing: 0.04em;
-      z-index: 5;
-    }
-    .paper-content { padding-top: 56px; padding-bottom: 36px; }
-
     .grain { background-image: radial-gradient(rgba(80,44,0,0.05) 1px, transparent 0); background-size: 26px 26px; }
-    .ring-card { box-shadow: 0 0 0 1px rgba(80,44,0,0.08); }
-    .chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; font-size: 10px; font-weight: 500; border-radius: 999px; letter-spacing: 0.02em; }
-    .stat-num { font-variant-numeric: tabular-nums; }
+    .sun-burst { background: radial-gradient(circle at 50% 0%, #FFDF68 0%, #FFE388 25%, transparent 60%); }
+    .compare-card { transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s; }
+    .compare-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(80,44,0,0.12), 0 0 0 1px rgba(80,44,0,0.1); }
     .pill-btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 377px; font-weight: 600; font-size: 14px; transition: all 0.2s; }
-    .pill-btn-primary { background: #0099FF; color: white; }
-    .pill-btn-primary:hover { background: #0077CC; transform: translateY(-1px); }
-    .pill-btn-dark { background: #502C00; color: #FFFCFA; }
-    .pill-btn-dark:hover { background: #2E1A00; transform: translateY(-1px); }
-
-    /* Heatmap cell */
-    .heat { display: flex; align-items: center; justify-content: center; height: 28px; font-size: 10px; font-weight: 600; }
-    .heat-r { background: #FFA166; color: #502C00; }
-    .heat-d { background: #FFD4B5; color: #502C00; }
-    .heat-c { background: #FFE388; color: #502C00; }
-    .heat-b { background: #BAE8D0; color: #2E1A00; }
-    .heat-a { background: #8FD9B0; color: #2E1A00; }
-
-    /* Rating scale grade boxes */
-    .grade-box { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 8px 4px; font-weight: 700; }
-    .grade-box .letter { font-family: 'Hedvig Letters Sans', serif; font-size: 22px; line-height: 1; }
-    .grade-box .range { font-family: 'Fragment Mono', monospace; font-size: 9px; opacity: 0.7; margin-top: 2px; }
-
-    @media print {
-      body { background: white; }
-      .paper { box-shadow: none; margin: 0 auto; page-break-after: always; }
-      .no-print { display: none !important; }
-    }
-
-    @media (max-width: 768px) {
-      .paper { margin: 0; }
-      .paper-inner { padding: 80px 24px 96px 24px; }
-      .paper-header, .paper-footer { padding-left: 24px; padding-right: 24px; }
-    }
+    .preview-frame { transform: scale(0.9); transform-origin: top center; pointer-events: none; }
   </style>
 </head>
-<body class="antialiased">
+<body class="antialiased min-h-screen">
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- DOWNLOAD BAR (sticky, no-print)                  -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <nav class="no-print sticky top-0 z-50 backdrop-blur-md bg-cream-50/85 border-b border-brown-800/10">
-    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+  <!-- Background -->
+  <div class="absolute inset-0 sun-burst opacity-40 pointer-events-none"></div>
+  <div class="absolute inset-0 grain opacity-50 pointer-events-none"></div>
+
+  <div class="relative max-w-6xl mx-auto px-6 lg:px-12 py-16 md:py-24">
+
+    <!-- Header -->
+    <header class="mb-14 md:mb-20">
+      <div class="flex items-center gap-3 mb-10">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
           <circle cx="16" cy="16" r="6" fill="#FFDF68"/>
           <g stroke="#502C00" stroke-width="1.8" stroke-linecap="round">
             <line x1="16" y1="2" x2="16" y2="5"/><line x1="16" y1="27" x2="16" y2="30"/><line x1="2" y1="16" x2="5" y2="16"/><line x1="27" y1="16" x2="30" y2="16"/><line x1="6.2" y1="6.2" x2="8.3" y2="8.3"/><line x1="23.7" y1="23.7" x2="25.8" y2="25.8"/><line x1="6.2" y1="25.8" x2="8.3" y2="23.7"/><line x1="23.7" y1="8.3" x2="25.8" y2="6.2"/>
@@ -129,952 +61,203 @@
           <circle cx="16" cy="16" r="6" fill="none" stroke="#502C00" stroke-width="1.8"/>
         </svg>
         <div class="flex items-baseline gap-2">
-          <span class="display text-lg text-brown-800">SOLARIS</span>
-          <span class="mono text-[10px] text-brown-700/60 hidden sm:inline">AI Workforce Scorecard · Apex Financial Group · Q2 2026</span>
+          <span class="display text-xl text-brown-800">SOLARIS</span>
+          <span class="mono text-[10px] text-brown-700/60">by Build Club</span>
         </div>
       </div>
-      <div class="flex items-center gap-3">
-        <button onclick="window.print()" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-brown-800 bg-cream-100 border border-brown-800/10 hover:bg-cream-200 transition">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          Download PDF
-        </button>
-        <a href="https://solaris.buildclub.ai" target="_blank" rel="noopener" class="pill-btn pill-btn-primary text-xs" style="padding: 10px 20px;">Book demo</a>
-      </div>
-    </div>
-  </nav>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- PAGE 1 — COVER & SCORECARD                       -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <article class="paper">
-    <header class="paper-header">
-      <div class="flex items-center gap-2">
-        <div class="w-5 h-5 rounded-full bg-gradient-to-br from-sun-400 to-ember-500"></div>
-        <span class="display text-brown-800 text-base">SOLARIS</span>
-        <span class="mono text-[10px] text-brown-700/60">by Build Club</span>
+      <div class="flex items-center gap-3 mb-6">
+        <div class="h-px w-8 bg-brown-800"></div>
+        <span class="mono text-xs text-brown-800 tracking-wider">AI WORKFORCE CAPABILITY REPORT — TWO FORMATS</span>
       </div>
-      <span class="mono text-[10px] text-brown-700/60">SCORECARD: APEX FINANCIAL GROUP · Q2 2026</span>
+
+      <h1 class="display text-5xl md:text-7xl text-brown-800 mb-6 max-w-4xl">
+        Same data. Two formats.<br/><span class="text-ember-600">Pick the one that lands.</span>
+      </h1>
+      <p class="text-lg text-brown-700 max-w-2xl leading-relaxed">
+        Both versions score the same fictional company (Apex Financial Group) using the same methodology. They differ only in form: how the audience is meant to consume the information.
+      </p>
     </header>
 
-    <div class="paper-inner paper-content">
-      <!-- Title bar -->
-      <div class="flex items-end justify-between mb-6 pb-5 border-b-2 border-brown-800">
-        <div>
-          <div class="mono text-[10px] text-ember-600 tracking-widest mb-2">AI WORKFORCE CAPABILITY ASSESSMENT</div>
-          <h1 class="display text-4xl text-brown-800">Scorecard: <span class="font-bold">Apex Financial Group</span></h1>
+    <!-- Two cards -->
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8 mb-16">
+
+      <!-- LANDING PAGE VERSION -->
+      <a href="landing/" class="compare-card block bg-cream-100 rounded-3xl p-8 md:p-10 ring-1 ring-brown-800/8 shadow-[0_4px_16px_rgba(80,44,0,0.06)]">
+        <div class="flex items-center justify-between mb-6">
+          <span class="chip mono text-[10px] tracking-wider px-3 py-1 rounded-full bg-sun-500/40 text-brown-800 font-semibold uppercase">Format A</span>
+          <span class="mono text-[10px] text-brown-700/60">/ landing</span>
         </div>
-        <div class="text-right">
-          <div class="mono text-[10px] text-brown-700/60">REPORT v1.0 · BASELINE</div>
-          <div class="mono text-[10px] text-brown-700/60">Q2 2026 · MODEL v0.4.1</div>
+
+        <!-- Preview thumbnail -->
+        <div class="rounded-2xl overflow-hidden mb-6 ring-1 ring-brown-800/8 bg-cream-50 aspect-[4/3]">
+          <div class="h-full flex flex-col">
+            <!-- Mock nav -->
+            <div class="bg-cream-50/80 backdrop-blur border-b border-brown-800/10 px-3 py-2 flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <div class="w-3 h-3 rounded-full bg-sun-500"></div>
+                <span class="mono text-[7px] text-brown-800">SOLARIS</span>
+              </div>
+              <div class="w-10 h-2 rounded-full bg-cobalt-500"></div>
+            </div>
+            <!-- Hero -->
+            <div class="flex-1 p-4 relative" style="background:radial-gradient(circle at 50% 0%, #FFDF68 0%, transparent 60%);">
+              <div class="mono text-[6px] text-brown-800 mb-2">— AI WORKFORCE CAPABILITY REPORT</div>
+              <div class="display text-[14px] text-brown-800 leading-tight mb-3">Apex Financial<br/>is an <span class="bg-sun-500 px-1">Implementer</span>.</div>
+              <div class="flex gap-1.5 mb-3">
+                <div class="flex-1 h-3 rounded-full bg-cream-100 ring-1 ring-brown-800/10"></div>
+                <div class="flex-1 h-3 rounded-full bg-cream-100 ring-1 ring-brown-800/10"></div>
+                <div class="flex-1 h-3 rounded-full bg-cream-100 ring-1 ring-brown-800/10"></div>
+                <div class="flex-1 h-3 rounded-full bg-cream-100 ring-1 ring-brown-800/10"></div>
+              </div>
+              <!-- Mock stats grid -->
+              <div class="grid grid-cols-4 gap-1">
+                <div class="bg-cream-100 rounded p-1 ring-1 ring-brown-800/5"><div class="mono text-[5px] text-brown-700/60 mb-0.5">WORKFORCE</div><div class="display text-[10px] text-brown-800">145</div></div>
+                <div class="bg-cream-100 rounded p-1 ring-1 ring-brown-800/5"><div class="mono text-[5px] text-brown-700/60 mb-0.5">FLUENCY</div><div class="display text-[10px] text-brown-800">8%</div></div>
+                <div class="bg-cream-100 rounded p-1 ring-1 ring-brown-800/5"><div class="mono text-[5px] text-brown-700/60 mb-0.5">USE CASES</div><div class="display text-[10px] text-brown-800">6/19</div></div>
+                <div class="bg-cream-100 rounded p-1 ring-1 ring-brown-800/5"><div class="mono text-[5px] text-brown-700/60 mb-0.5">ROI</div><div class="display text-[10px] text-ember-600">—</div></div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        <h2 class="display text-3xl md:text-4xl text-brown-800 mb-3">Long-scroll landing</h2>
+        <p class="text-sm text-brown-700 leading-relaxed mb-5">
+          Marketing-page format. Big hero, scrolling sections, CTA buttons. Lives on the web — the audience scrolls top-to-bottom and the story unfolds as they go.
+        </p>
+
+        <div class="space-y-2 mb-6 text-xs text-brown-700">
+          <div class="flex items-center gap-2"><span class="mono text-mint">●</span><span>Best for: <strong>cold web traffic, demo prospects, social shares</strong></span></div>
+          <div class="flex items-center gap-2"><span class="mono text-mint">●</span><span>Tone: <strong>warm, conversational, narrative</strong></span></div>
+          <div class="flex items-center gap-2"><span class="mono text-mint">●</span><span>Length: <strong>~6 sections, vertical scroll</strong></span></div>
+          <div class="flex items-center gap-2"><span class="mono text-ember-500">●</span><span>Trade-off: <strong>not print-friendly, no methodology depth</strong></span></div>
+        </div>
+
+        <div class="pill-btn bg-cobalt-500 text-white inline-flex">
+          Open landing page
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+
+      <!-- SCORECARD VERSION -->
+      <a href="scorecard/" class="compare-card block bg-cream-100 rounded-3xl p-8 md:p-10 ring-1 ring-brown-800/8 shadow-[0_4px_16px_rgba(80,44,0,0.06)]">
+        <div class="flex items-center justify-between mb-6">
+          <span class="chip mono text-[10px] tracking-wider px-3 py-1 rounded-full bg-ember-500 text-white font-semibold uppercase">Format B</span>
+          <span class="mono text-[10px] text-brown-700/60">/ scorecard</span>
+        </div>
+
+        <!-- Preview thumbnail -->
+        <div class="rounded-2xl overflow-hidden mb-6 ring-1 ring-brown-800/8 bg-cream-200/40 aspect-[4/3] p-3">
+          <div class="bg-cream-50 rounded h-full p-2 shadow-md flex flex-col">
+            <!-- Mock paper header -->
+            <div class="border-b border-brown-800/10 pb-1 mb-2 flex items-center justify-between">
+              <div class="flex items-center gap-1">
+                <div class="w-2 h-2 rounded-full bg-sun-500"></div>
+                <span class="mono text-[5px] text-brown-800">SOLARIS</span>
+              </div>
+              <span class="mono text-[5px] text-brown-700/60">SCORECARD: APEX · Q2 2026</span>
+            </div>
+            <!-- Title -->
+            <div class="display text-[10px] text-brown-800 mb-2 pb-1 border-b-2 border-brown-800">Scorecard: Apex Financial Group</div>
+            <!-- Score row -->
+            <div class="flex gap-2 mb-2">
+              <div class="bg-ember-500 rounded p-1.5 flex flex-col items-center justify-center w-[28%]">
+                <div class="display text-[24px] text-cream-50 leading-none font-bold">D</div>
+                <div class="display text-[7px] text-cream-50">52.4</div>
+              </div>
+              <div class="flex-1">
+                <div class="mono text-[4px] text-brown-700/60 mb-0.5">RATING SCALE</div>
+                <div class="grid grid-cols-7 gap-px h-3 mb-1">
+                  <div class="bg-brown-700"></div>
+                  <div class="bg-ember-600"></div>
+                  <div class="bg-ember-500 ring-1 ring-brown-800"></div>
+                  <div class="bg-sun-500"></div>
+                  <div class="bg-sun-400"></div>
+                  <div class="bg-mint"></div>
+                  <div style="background:#8FD9B0"></div>
+                </div>
+                <div class="bg-cream-100 rounded p-1">
+                  <div class="text-[5px] text-brown-700">42nd percentile · 3rd of 6 peers</div>
+                </div>
+              </div>
+            </div>
+            <!-- Heatmap rows -->
+            <div class="space-y-px">
+              <div class="grid grid-cols-7 gap-px">
+                <div class="bg-cream-100 px-0.5"><span class="text-[4px] text-brown-800">AI Lit</span></div>
+                <div class="h-1.5 bg-ember-500/60"></div><div class="h-1.5 bg-sun-500/60"></div><div class="h-1.5 bg-ember-600/60"></div><div class="h-1.5 bg-sun-500/60"></div><div class="h-1.5 bg-mint/60"></div><div class="h-1.5 bg-ember-500/60"></div>
+              </div>
+              <div class="grid grid-cols-7 gap-px">
+                <div class="bg-cream-100 px-0.5"><span class="text-[4px] text-brown-800">Talent</span></div>
+                <div class="h-1.5 bg-sun-500/60"></div><div class="h-1.5 bg-sun-500/60"></div><div class="h-1.5 bg-ember-500/60"></div><div class="h-1.5 bg-ember-500/60"></div><div class="h-1.5 bg-mint/60"></div><div class="h-1.5 bg-sun-500/60"></div>
+              </div>
+              <div class="grid grid-cols-7 gap-px">
+                <div class="bg-cream-100 px-0.5"><span class="text-[4px] text-brown-800">Govern</span></div>
+                <div class="h-1.5 bg-sun-500/60"></div><div class="h-1.5 bg-ember-500/60"></div><div class="h-1.5 bg-ember-500/60"></div><div class="h-1.5 bg-sun-500/60"></div><div class="h-1.5 bg-mint/60"></div><div class="h-1.5 bg-ember-500/60"></div>
+              </div>
+            </div>
+            <div class="mt-auto pt-1 border-t border-brown-800/10 flex justify-between">
+              <span class="mono text-[4px] text-brown-700/60">SOLARIS</span>
+              <span class="mono text-[4px] text-brown-700/60">PAGE 1 / 5</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="display text-3xl md:text-4xl text-brown-800 mb-3">Paper scorecard</h2>
+        <p class="text-sm text-brown-700 leading-relaxed mb-5">
+          PDF-ready 5-page document. EthicsGrade-style letter grade, peer heatmap, methodology. Designed to be downloaded, printed, and forwarded to a CFO.
+        </p>
+
+        <div class="space-y-2 mb-6 text-xs text-brown-700">
+          <div class="flex items-center gap-2"><span class="mono text-mint">●</span><span>Best for: <strong>enterprise sales, exec briefings, board packs</strong></span></div>
+          <div class="flex items-center gap-2"><span class="mono text-mint">●</span><span>Tone: <strong>analytical, sourced, audit-grade</strong></span></div>
+          <div class="flex items-center gap-2"><span class="mono text-mint">●</span><span>Length: <strong>5 paper pages, full methodology</strong></span></div>
+          <div class="flex items-center gap-2"><span class="mono text-mint">●</span><span>Has print → PDF button built in</span></div>
+        </div>
+
+        <div class="pill-btn bg-brown-800 text-cream-50 inline-flex">
+          Open scorecard
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Side-by-side breakdown -->
+    <div class="bg-cream-100 ring-1 ring-brown-800/8 rounded-3xl p-8 md:p-10">
+      <h2 class="display text-2xl text-brown-800 mb-6">Side-by-side breakdown</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-brown-800">
+              <th class="text-left py-3 pr-4 mono text-[10px] tracking-wider text-brown-700/70 font-semibold">DIMENSION</th>
+              <th class="text-left py-3 px-4 mono text-[10px] tracking-wider text-brown-800 font-semibold">FORMAT A — LANDING</th>
+              <th class="text-left py-3 pl-4 mono text-[10px] tracking-wider text-brown-800 font-semibold">FORMAT B — SCORECARD</th>
+            </tr>
+          </thead>
+          <tbody class="text-brown-700">
+            <tr class="border-b border-brown-800/8"><td class="py-3 pr-4 font-semibold text-brown-800">Audience</td><td class="py-3 px-4">Demo seekers, web visitors</td><td class="py-3 pl-4">CFOs, CHROs, board members</td></tr>
+            <tr class="border-b border-brown-800/8"><td class="py-3 pr-4 font-semibold text-brown-800">Hero element</td><td class="py-3 px-4">"Apex is an Implementer." headline</td><td class="py-3 pl-4">Letter grade <strong>D</strong> · 52.4 / 100</td></tr>
+            <tr class="border-b border-brown-800/8"><td class="py-3 pr-4 font-semibold text-brown-800">Methodology surfaced?</td><td class="py-3 px-4">Footer mention</td><td class="py-3 pl-4">Full page (page 4) with weighting table</td></tr>
+            <tr class="border-b border-brown-800/8"><td class="py-3 pr-4 font-semibold text-brown-800">Peer comparison</td><td class="py-3 px-4">No</td><td class="py-3 pl-4">Yes — heatmap + global rank strip</td></tr>
+            <tr class="border-b border-brown-800/8"><td class="py-3 pr-4 font-semibold text-brown-800">Risk framing</td><td class="py-3 px-4">Implicit (gap analysis)</td><td class="py-3 pl-4">Explicit — REGULATION / REPUTATION / ROBUSTNESS / RESOURCE</td></tr>
+            <tr class="border-b border-brown-800/8"><td class="py-3 pr-4 font-semibold text-brown-800">Print to PDF</td><td class="py-3 px-4">Not designed for it</td><td class="py-3 pl-4">First-class — CMD+P gives you a clean 5-page PDF</td></tr>
+            <tr><td class="py-3 pr-4 font-semibold text-brown-800">CTA</td><td class="py-3 px-4">Book discovery call</td><td class="py-3 pl-4">Book discovery call (same)</td></tr>
+          </tbody>
+        </table>
       </div>
-
-      <!-- Intro -->
-      <p class="text-sm text-brown-700 leading-relaxed mb-7 max-w-3xl">
-        This scorecard presents the Solaris Baseline assessment of AI workforce capability at Apex Financial Group based on publicly available information. Our methodology synthesises the AIRI framework (AI Singapore), ESI ThoughtLab's 1,200-firm study, the Element AI Maturity Framework, and O'Reilly's Enterprise Adoption survey. The model considers 32 weighted data points across 6 dimensions to produce an aggregate composite score and letter grade.
-      </p>
-
-      <!-- Score row: Big letter + scale strip + summary -->
-      <div class="grid grid-cols-12 gap-6 mb-10">
-        <!-- Big letter -->
-        <div class="col-span-4">
-          <div class="bg-ember-500 rounded-2xl p-6 flex flex-col items-center justify-center aspect-[4/5] relative overflow-hidden">
-            <div class="absolute inset-0 grain opacity-30"></div>
-            <div class="relative display text-[10rem] font-bold text-cream-50 leading-none">D</div>
-            <div class="relative display text-3xl text-cream-50 mt-2">52.4</div>
-            <div class="relative mono text-[9px] text-cream-50/80 mt-1 tracking-wider">/ 100 COMPOSITE</div>
-          </div>
-        </div>
-
-        <!-- Scale + summary -->
-        <div class="col-span-8 flex flex-col">
-          <!-- Rating scale strip -->
-          <div>
-            <div class="mono text-[9px] text-brown-700/60 tracking-widest mb-2">RATING SCALE — SOLARIS COMPOSITE</div>
-            <div class="grid grid-cols-7 gap-1 rounded-lg overflow-hidden">
-              <div class="grade-box bg-brown-700 text-cream-50"><span class="letter">NR</span><span class="range">0–40</span></div>
-              <div class="grade-box bg-ember-600 text-cream-50"><span class="letter">R</span><span class="range">40–50</span></div>
-              <div class="grade-box bg-ember-500 text-cream-50 ring-2 ring-brown-800 ring-inset"><span class="letter">D</span><span class="range">50–60</span></div>
-              <div class="grade-box bg-sun-500 text-brown-800"><span class="letter">C</span><span class="range">60–70</span></div>
-              <div class="grade-box bg-sun-400 text-brown-800"><span class="letter">B</span><span class="range">70–80</span></div>
-              <div class="grade-box bg-mint text-brown-800"><span class="letter">A</span><span class="range">80–90</span></div>
-              <div class="grade-box text-brown-800" style="background:#8FD9B0;"><span class="letter">A+</span><span class="range">90–100</span></div>
-            </div>
-            <div class="mt-2 mono text-[10px] text-brown-700/70">Figure 1 · Apex sits in the <strong>D</strong> band — characteristic of organisations with established AI activity but limited workforce-wide capability.</div>
-          </div>
-
-          <!-- Quick stats -->
-          <div class="mt-5 bg-cream-100 rounded-xl p-5 ring-card flex-1">
-            <p class="text-sm text-brown-700 leading-relaxed">
-              In Q2 2026, Apex Financial Group scored <strong class="text-brown-800">52.4 out of 100</strong>. Apex currently sits in the <strong class="text-brown-800">42nd percentile</strong> of all organisations rated by Solaris and ranks <strong class="text-brown-800">3rd of 6</strong> Australian financial services peers benchmarked.
-            </p>
-            <div class="grid grid-cols-3 gap-4 mt-4 pt-4 border-t border-brown-800/10">
-              <div><div class="mono text-[9px] text-brown-700/60 mb-1">PERCENTILE</div><div class="display text-2xl text-brown-800">42<span class="text-base text-brown-700/40">nd</span></div></div>
-              <div><div class="mono text-[9px] text-brown-700/60 mb-1">PEER RANK</div><div class="display text-2xl text-brown-800">3<span class="text-base text-brown-700/40">/6</span></div></div>
-              <div><div class="mono text-[9px] text-brown-700/60 mb-1">MATURITY TIER</div><div class="display text-2xl text-brown-800">AI Aware</div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Peer comparison heatmap -->
-      <div class="mb-10">
-        <h2 class="display text-xl text-brown-800 mb-1">Rating compared to peer group</h2>
-        <p class="mono text-[10px] text-brown-700/60 mb-3">Figure 2 · Apex peer rank: 3rd of 6. Each column is a peer; rows are the six Solaris dimensions. Heat scale corresponds to relative score across all rated organisations.</p>
-        <div class="border border-brown-800/10 rounded-xl overflow-hidden">
-          <!-- Header row -->
-          <div class="grid grid-cols-7 bg-brown-800 text-cream-50 text-[10px] mono">
-            <div class="px-3 py-2">Dimension</div>
-            <div class="text-center px-1 py-2">Peer A</div>
-            <div class="text-center px-1 py-2">Peer B</div>
-            <div class="text-center px-1 py-2 bg-ember-500 text-brown-800 font-bold">APEX</div>
-            <div class="text-center px-1 py-2">Peer D</div>
-            <div class="text-center px-1 py-2">Peer E</div>
-            <div class="text-center px-1 py-2">Peer F</div>
-          </div>
-          <!-- Rows -->
-          <div class="grid grid-cols-7 border-t border-brown-800/10 text-xs">
-            <div class="px-3 py-2 italic text-brown-800">AI Literacy</div>
-            <div class="heat heat-d">D</div><div class="heat heat-c">C</div><div class="heat heat-r">R</div><div class="heat heat-c">C</div><div class="heat heat-b">B</div><div class="heat heat-d">D</div>
-          </div>
-          <div class="grid grid-cols-7 border-t border-brown-800/10 text-xs">
-            <div class="px-3 py-2 italic text-brown-800">AI Talent</div>
-            <div class="heat heat-c">C</div><div class="heat heat-c">C</div><div class="heat heat-d">D</div><div class="heat heat-d">D</div><div class="heat heat-b">B</div><div class="heat heat-c">C</div>
-          </div>
-          <div class="grid grid-cols-7 border-t border-brown-800/10 text-xs">
-            <div class="px-3 py-2 italic text-brown-800">Management Support</div>
-            <div class="heat heat-b">B</div><div class="heat heat-c">C</div><div class="heat heat-c">C</div><div class="heat heat-c">C</div><div class="heat heat-a">A</div><div class="heat heat-c">C</div>
-          </div>
-          <div class="grid grid-cols-7 border-t border-brown-800/10 text-xs">
-            <div class="px-3 py-2 italic text-brown-800">AI Governance</div>
-            <div class="heat heat-c">C</div><div class="heat heat-d">D</div><div class="heat heat-d">D</div><div class="heat heat-c">C</div><div class="heat heat-b">B</div><div class="heat heat-d">D</div>
-          </div>
-          <div class="grid grid-cols-7 border-t border-brown-800/10 text-xs">
-            <div class="px-3 py-2 italic text-brown-800">Business Use Case</div>
-            <div class="heat heat-c">C</div><div class="heat heat-b">B</div><div class="heat heat-c">C</div><div class="heat heat-c">C</div><div class="heat heat-b">B</div><div class="heat heat-c">C</div>
-          </div>
-          <div class="grid grid-cols-7 border-t border-brown-800/10 text-xs">
-            <div class="px-3 py-2 italic text-brown-800">Adoption Measurement</div>
-            <div class="heat heat-r">R</div><div class="heat heat-d">D</div><div class="heat heat-r">R</div><div class="heat heat-d">D</div><div class="heat heat-c">C</div><div class="heat heat-r">R</div>
-          </div>
-          <!-- Composite footer -->
-          <div class="grid grid-cols-7 border-t-2 border-brown-800 text-xs bg-cream-100 font-semibold">
-            <div class="px-3 py-2 text-brown-800">Composite</div>
-            <div class="heat heat-c text-brown-800">C</div>
-            <div class="heat heat-c text-brown-800">C</div>
-            <div class="heat heat-d text-brown-800 ring-2 ring-brown-800 ring-inset">D</div>
-            <div class="heat heat-d text-brown-800">D</div>
-            <div class="heat heat-b text-brown-800">B</div>
-            <div class="heat heat-d text-brown-800">D</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Global rank vertical strip -->
-      <div class="mb-10">
-        <h2 class="display text-xl text-brown-800 mb-1">Rating compared to all rated organisations</h2>
-        <p class="mono text-[10px] text-brown-700/60 mb-3">Figure 3 · Apex global rank: 287th. Each thin slice represents one rated organisation across the six Solaris dimensions.</p>
-        <div class="space-y-1">
-          <!-- Each row = a dimension; 100 thin slices simulated -->
-          <div class="space-y-1 mono text-[10px]">
-            <!-- AI Literacy -->
-            <div class="flex items-center gap-3">
-              <div class="w-32 italic text-brown-800 text-[10px]">AI Literacy</div>
-              <div class="flex-1 flex items-center gap-[1px] h-3 relative">
-                <div class="h-full flex-1 bg-ember-600/80"></div>
-                <div class="h-full flex-1 bg-ember-500/80"></div>
-                <div class="h-full flex-1 bg-ember-400/80 relative">
-                  <div class="absolute top-[-3px] bottom-[-3px] left-1/2 w-[2px] bg-brown-950"></div>
-                </div>
-                <div class="h-full flex-1 bg-sun-500/80"></div>
-                <div class="h-full flex-1 bg-sun-400/80"></div>
-                <div class="h-full flex-1 bg-mint/80"></div>
-                <div class="h-full flex-1" style="background:#8FD9B0CC;"></div>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="w-32 italic text-brown-800 text-[10px]">AI Talent</div>
-              <div class="flex-1 flex items-center gap-[1px] h-3 relative">
-                <div class="h-full flex-1 bg-ember-600/80"></div>
-                <div class="h-full flex-1 bg-ember-500/80 relative">
-                  <div class="absolute top-[-3px] bottom-[-3px] left-2/3 w-[2px] bg-brown-950"></div>
-                </div>
-                <div class="h-full flex-1 bg-ember-400/80"></div>
-                <div class="h-full flex-1 bg-sun-500/80"></div>
-                <div class="h-full flex-1 bg-sun-400/80"></div>
-                <div class="h-full flex-1 bg-mint/80"></div>
-                <div class="h-full flex-1" style="background:#8FD9B0CC;"></div>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="w-32 italic text-brown-800 text-[10px]">Mgmt Support</div>
-              <div class="flex-1 flex items-center gap-[1px] h-3 relative">
-                <div class="h-full flex-1 bg-ember-600/80"></div>
-                <div class="h-full flex-1 bg-ember-500/80"></div>
-                <div class="h-full flex-1 bg-ember-400/80"></div>
-                <div class="h-full flex-1 bg-sun-500/80 relative">
-                  <div class="absolute top-[-3px] bottom-[-3px] left-1/3 w-[2px] bg-brown-950"></div>
-                </div>
-                <div class="h-full flex-1 bg-sun-400/80"></div>
-                <div class="h-full flex-1 bg-mint/80"></div>
-                <div class="h-full flex-1" style="background:#8FD9B0CC;"></div>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="w-32 italic text-brown-800 text-[10px]">AI Governance</div>
-              <div class="flex-1 flex items-center gap-[1px] h-3 relative">
-                <div class="h-full flex-1 bg-ember-600/80"></div>
-                <div class="h-full flex-1 bg-ember-500/80"></div>
-                <div class="h-full flex-1 bg-ember-400/80 relative">
-                  <div class="absolute top-[-3px] bottom-[-3px] left-1/4 w-[2px] bg-brown-950"></div>
-                </div>
-                <div class="h-full flex-1 bg-sun-500/80"></div>
-                <div class="h-full flex-1 bg-sun-400/80"></div>
-                <div class="h-full flex-1 bg-mint/80"></div>
-                <div class="h-full flex-1" style="background:#8FD9B0CC;"></div>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="w-32 italic text-brown-800 text-[10px]">Use Case</div>
-              <div class="flex-1 flex items-center gap-[1px] h-3 relative">
-                <div class="h-full flex-1 bg-ember-600/80"></div>
-                <div class="h-full flex-1 bg-ember-500/80"></div>
-                <div class="h-full flex-1 bg-ember-400/80"></div>
-                <div class="h-full flex-1 bg-sun-500/80 relative">
-                  <div class="absolute top-[-3px] bottom-[-3px] left-1/2 w-[2px] bg-brown-950"></div>
-                </div>
-                <div class="h-full flex-1 bg-sun-400/80"></div>
-                <div class="h-full flex-1 bg-mint/80"></div>
-                <div class="h-full flex-1" style="background:#8FD9B0CC;"></div>
-              </div>
-            </div>
-            <div class="flex items-center gap-3">
-              <div class="w-32 italic text-brown-800 text-[10px]">Measurement</div>
-              <div class="flex-1 flex items-center gap-[1px] h-3 relative">
-                <div class="h-full flex-1 bg-ember-600/80 relative">
-                  <div class="absolute top-[-3px] bottom-[-3px] left-2/3 w-[2px] bg-brown-950"></div>
-                </div>
-                <div class="h-full flex-1 bg-ember-500/80"></div>
-                <div class="h-full flex-1 bg-ember-400/80"></div>
-                <div class="h-full flex-1 bg-sun-500/80"></div>
-                <div class="h-full flex-1 bg-sun-400/80"></div>
-                <div class="h-full flex-1 bg-mint/80"></div>
-                <div class="h-full flex-1" style="background:#8FD9B0CC;"></div>
-              </div>
-            </div>
-            <!-- Scale -->
-            <div class="flex items-center gap-3 pt-1">
-              <div class="w-32"></div>
-              <div class="flex-1 flex justify-between mono text-[9px] text-brown-700/60">
-                <span>NR</span><span>R</span><span>D</span><span>C</span><span>B</span><span>A</span><span>A+</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Maturity assessment -->
-      <div class="grid grid-cols-12 gap-6">
-        <div class="col-span-5">
-          <h2 class="display text-xl text-brown-800 mb-3">Maturity assessment</h2>
-          <p class="text-xs text-brown-700 leading-relaxed mb-3">
-            Solaris ratings are mapped to a 4-stage workforce maturity model derived from the AIRI framework (AI Singapore) and validated against ESI ThoughtLab's 4-stage curve. The challenge for organisations like Apex is to translate isolated AI awareness into broad workforce capability — moving from <em>AI Aware</em> to <em>AI Ready</em>, then to <em>AI Competent</em>.
-          </p>
-          <p class="mono text-[10px] text-brown-700/60">Figure 4 · Adapted from AIRI (AI Singapore) and Element AI 5-stage framework. See p.4 for full methodology.</p>
-        </div>
-        <div class="col-span-7">
-          <div class="bg-cream-100 ring-card rounded-xl p-5 relative h-72">
-            <!-- Y axis label -->
-            <div class="absolute left-2 top-1/2 -translate-y-1/2 -rotate-90 mono text-[9px] text-brown-700/60 origin-center" style="white-space:nowrap;">Workforce Capability →</div>
-            <!-- Chart area -->
-            <div class="ml-8 h-full relative grid grid-cols-4 grid-rows-4 gap-0">
-              <!-- Background quadrants -->
-              <div class="absolute inset-0 grid grid-cols-4 grid-rows-4 gap-px opacity-50">
-                <!-- Bottom-left red gradient to top-right green -->
-                <div class="bg-ember-500/30"></div><div class="bg-ember-500/20"></div><div class="bg-ember-400/15"></div><div class="bg-sun-500/15"></div>
-                <div class="bg-ember-500/20"></div><div class="bg-sun-500/15"></div><div class="bg-sun-500/20"></div><div class="bg-sun-400/25"></div>
-                <div class="bg-ember-400/15"></div><div class="bg-sun-500/20"></div><div class="bg-sun-400/30"></div><div class="bg-mint/30"></div>
-                <div class="bg-sun-500/15"></div><div class="bg-sun-400/25"></div><div class="bg-mint/30"></div><div class="bg-mint/50"></div>
-              </div>
-              <!-- Diagonal "zone of complacency" line -->
-              <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100">
-                <line x1="0" y1="100" x2="100" y2="0" stroke="#502C00" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.4"/>
-                <text x="60" y="40" font-family="Fragment Mono, monospace" font-size="3" fill="#502C00" opacity="0.6" transform="rotate(-45 60 40)">zone of complacency</text>
-              </svg>
-              <!-- Apex marker (col 2, row 3 from top — AI Aware × Emerging) -->
-              <div class="absolute" style="left: 33%; top: 56%;">
-                <div class="w-3 h-3 rounded-full bg-brown-800 ring-4 ring-ember-500/40"></div>
-                <div class="mono text-[9px] text-brown-800 font-bold mt-1 whitespace-nowrap">Apex</div>
-              </div>
-            </div>
-            <!-- Y axis ticks -->
-            <div class="absolute left-8 top-3 bottom-7 flex flex-col-reverse justify-between mono text-[8px] text-brown-700/60">
-              <span>Unaware</span><span>Aware</span><span>Ready</span><span>Competent</span>
-            </div>
-            <!-- X axis -->
-            <div class="absolute bottom-2 left-16 right-3 flex justify-between mono text-[8px] text-brown-700/60">
-              <span>Latent</span><span>Emerging</span><span>Consolidating</span><span>Embedded</span>
-            </div>
-          </div>
-        </div>
+      <div class="mt-6 pt-5 border-t border-brown-800/10 mono text-[10px] text-brown-700/60">
+        Both formats use identical underlying data and the same six-dimension methodology. Sources: AIRI (AI Singapore), ESI ThoughtLab (n=1,200), Element AI Maturity Framework, O'Reilly Enterprise Adoption 2022, Gartner Government AI Survey.
       </div>
     </div>
 
-    <footer class="paper-footer">
-      <span class="mono text-brown-700/60">SOLARIS · BUILD CLUB · solaris.buildclub.ai</span>
-      <span class="mono text-brown-700/60">PAGE 1 / 5</span>
+    <!-- Footer -->
+    <footer class="mt-16 pt-8 border-t border-brown-800/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-brown-700/60">
+      <span class="mono">SOLARIS · BUILD CLUB · DEMO</span>
+      <span class="mono">"Apex Financial Group" is fictional · methodology is real</span>
     </footer>
-  </article>
 
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- PAGE 2 — KEY RISKS & ROADMAP                     -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <article class="paper">
-    <header class="paper-header">
-      <div class="flex items-center gap-2">
-        <div class="w-5 h-5 rounded-full bg-gradient-to-br from-sun-400 to-ember-500"></div>
-        <span class="display text-brown-800 text-base">SOLARIS</span>
-        <span class="mono text-[10px] text-brown-700/60">by Build Club</span>
-      </div>
-      <span class="mono text-[10px] text-brown-700/60">SCORECARD: APEX FINANCIAL GROUP · Q2 2026</span>
-    </header>
-
-    <div class="paper-inner paper-content">
-      <h2 class="display text-3xl text-brown-800 mb-2"><span class="text-ember-600">Key</span> workforce risk factors for Apex</h2>
-      <p class="text-sm text-brown-700 leading-relaxed mb-7 max-w-3xl">
-        To develop a scorecard, Solaris investigates whether existing capability development, governance, and stakeholder activities demonstrate appropriate AI workforce readiness. Based on our analysis of Apex Financial Group, we have identified the following key risk factors:
-      </p>
-
-      <div class="space-y-4 mb-10">
-        <!-- REGULATION -->
-        <div class="bg-cream-100 ring-card rounded-xl overflow-hidden">
-          <div class="flex">
-            <div class="bg-ember-500 px-5 py-4 flex items-center min-w-[140px]">
-              <span class="display text-cream-50 text-lg font-bold">REGULATION</span>
-            </div>
-            <div class="px-5 py-4">
-              <p class="text-sm text-brown-700 leading-relaxed">
-                Australian financial services is on the leading edge of AI regulatory scrutiny — APRA's CPS 234 update and the EU AI Act's extraterritorial reach create rising compliance pressure. Apex maintains <strong>baseline</strong> alignment but lags peers on published responsible-AI frameworks. Failing to demonstrate workforce-wide AI literacy creates regulatory exposure.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- REPUTATION -->
-        <div class="bg-cream-100 ring-card rounded-xl overflow-hidden">
-          <div class="flex">
-            <div class="bg-ember-500 px-5 py-4 flex items-center min-w-[140px]">
-              <span class="display text-cream-50 text-lg font-bold">REPUTATION</span>
-            </div>
-            <div class="px-5 py-4">
-              <p class="text-sm text-brown-700 leading-relaxed">
-                Organisations with similar profiles have faced reputational risk from AI rollouts that bypassed workforce training (model misuse, biased outputs, employee resistance). Apex's lack of a formal AI capability program means line managers and frontline staff have no shared baseline for responsible AI use — a known precursor to public incidents.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- ROBUSTNESS -->
-        <div class="bg-cream-100 ring-card rounded-xl overflow-hidden">
-          <div class="flex">
-            <div class="bg-ember-500 px-5 py-4 flex items-center min-w-[140px]">
-              <span class="display text-cream-50 text-lg font-bold">ROBUSTNESS</span>
-            </div>
-            <div class="px-5 py-4">
-              <p class="text-sm text-brown-700 leading-relaxed">
-                Per ESI ThoughtLab, <strong>79% of firms with negative AI ROI lack a measurement system</strong>. Apex's annual report references AI investment six times but never quantifies returns or adoption. Without a measurement layer, the AI program is invisible to the CFO and indefensible at budget review.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- RESOURCE -->
-        <div class="bg-cream-100 ring-card rounded-xl overflow-hidden">
-          <div class="flex">
-            <div class="bg-ember-500 px-5 py-4 flex items-center min-w-[140px]">
-              <span class="display text-cream-50 text-lg font-bold">RESOURCE</span>
-            </div>
-            <div class="px-5 py-4">
-              <p class="text-sm text-brown-700 leading-relaxed">
-                Apex's ~145 visible AI professionals look impressive but are <strong>1/5 the talent density</strong> of ESI's Leader cohort (avg. 715). The bigger gap is workforce-wide: 88% of AI overperformers train non-data-scientists in AI; only 2% of underperformers do. Apex shows the underperformer pattern. Hiring won't close this — capability development will.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Solaris service roadmap -->
-      <h2 class="display text-2xl text-brown-800 mb-2">Solaris AI workforce capability roadmap</h2>
-      <p class="text-sm text-brown-700 leading-relaxed mb-5 max-w-3xl">
-        Solaris services progress in four stages, each delivering a measurable shift in capability. Most organisations enter at <em>Baseline</em> and engage further once they see the gap between current and desired state.
-      </p>
-      <div class="bg-cream-100 rounded-xl p-5 ring-card mb-10">
-        <div class="flex items-center justify-between gap-2">
-          <div class="flex-1 text-center">
-            <div class="bg-cream-50 rounded-xl py-3 px-2 ring-card">
-              <div class="display text-sm text-brown-800 font-bold">Baseline</div>
-              <div class="mono text-[9px] text-brown-700/60">Public-info scorecard</div>
-            </div>
-          </div>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A4F1A" stroke-width="2" class="flex-shrink-0"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          <div class="flex-1 text-center">
-            <div class="bg-sun-500 rounded-xl py-3 px-2">
-              <div class="display text-sm text-brown-800 font-bold">Diagnose</div>
-              <div class="mono text-[9px] text-brown-800/70">Capability assessment</div>
-            </div>
-          </div>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A4F1A" stroke-width="2" class="flex-shrink-0"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          <div class="flex-1 text-center">
-            <div class="bg-ember-500 rounded-xl py-3 px-2">
-              <div class="display text-sm text-cream-50 font-bold">Develop</div>
-              <div class="mono text-[9px] text-cream-50/80">4-week accelerator</div>
-            </div>
-          </div>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8A4F1A" stroke-width="2" class="flex-shrink-0"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          <div class="flex-1 text-center">
-            <div class="bg-mint rounded-xl py-3 px-2">
-              <div class="display text-sm text-brown-800 font-bold">Govern</div>
-              <div class="mono text-[9px] text-brown-800/70">AI Ops dashboard</div>
-            </div>
-          </div>
-        </div>
-        <div class="mt-4 mono text-[10px] text-brown-700/60 text-center">Apex is currently at <strong>Baseline</strong> — engagement begins with the Diagnose tier.</div>
-      </div>
-
-      <!-- Information sources -->
-      <h2 class="display text-2xl text-brown-800 mb-2">Information sources</h2>
-      <div class="grid grid-cols-2 gap-6 text-sm text-brown-700 leading-relaxed">
-        <div>
-          <p class="mb-3">
-            AI workforce capability is becoming a board-level metric for institutional investors, regulators, and ESG raters. Many ratings draw on public-domain information; Solaris does the same. To develop our Baseline assessment of Apex Financial Group, we triangulated publicly available signals across 32 indicators against our 6-dimension model.
-          </p>
-          <p>
-            Having developed the scorecard, we share findings privately with the company before any publication. Companies are invited to engage with Solaris and surface internal evidence superior to the public Baseline — often revealing positive actions that should be communicated more clearly externally.
-          </p>
-        </div>
-        <div>
-          <p class="mb-3">
-            Public sources reviewed include: 2025 Annual Report and Sustainability Report, Investor Day deck (Nov 2025), LinkedIn workforce composition (n≈35,400 employees), LinkedIn Jobs (90-day window), Glassdoor employee reviews (last 200), GitHub organisation activity, conference appearances, and earnings call transcripts (Q1 2025–Q1 2026).
-          </p>
-          <p>
-            Our Baseline scorecards are licensed to investors, auditors, and consulting partners under fair-use research terms. Companies that complete a paid <strong>Solaris Diagnose</strong> engagement receive an enriched score that incorporates internal evidence, often shifting their grade by 1–2 bands.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <footer class="paper-footer">
-      <span class="mono text-brown-700/60">SOLARIS · BUILD CLUB · solaris.buildclub.ai</span>
-      <span class="mono text-brown-700/60">PAGE 2 / 5</span>
-    </footer>
-  </article>
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- PAGE 3 — DIMENSION DEEP DIVE                     -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <article class="paper">
-    <header class="paper-header">
-      <div class="flex items-center gap-2">
-        <div class="w-5 h-5 rounded-full bg-gradient-to-br from-sun-400 to-ember-500"></div>
-        <span class="display text-brown-800 text-base">SOLARIS</span>
-        <span class="mono text-[10px] text-brown-700/60">by Build Club</span>
-      </div>
-      <span class="mono text-[10px] text-brown-700/60">SCORECARD: APEX FINANCIAL GROUP · Q2 2026</span>
-    </header>
-
-    <div class="paper-inner paper-content">
-      <h2 class="display text-3xl text-brown-800 mb-2">Dimension <span class="text-ember-600">deep dive</span></h2>
-      <p class="text-sm text-brown-700 leading-relaxed mb-7 max-w-3xl">
-        Each dimension is scored 1–4 on the AIRI scale (AI Unaware → AI Aware → AI Ready → AI Competent), then weighted to produce the composite. Weighting is calibrated against ESI ThoughtLab's correlation between each capability and realised AI ROI.
-      </p>
-
-      <!-- Dimension cards (compact 2-col) -->
-      <div class="grid grid-cols-2 gap-4">
-        <!-- AI Literacy -->
-        <div class="bg-cream-100 ring-card rounded-xl p-5">
-          <div class="flex items-baseline justify-between mb-2">
-            <div class="flex items-center gap-2">
-              <span class="mono text-[10px] text-brown-700/60">01</span>
-              <span class="font-bold text-brown-800">AI Literacy</span>
-            </div>
-            <span class="chip bg-ember-500/20 text-ember-600">AI AWARE</span>
-          </div>
-          <div class="flex items-baseline gap-2 mb-2">
-            <span class="display text-3xl text-brown-800 stat-num">1.6</span>
-            <span class="mono text-[10px] text-brown-700/60">/ 4 · D</span>
-          </div>
-          <div class="h-1.5 bg-cream-200 rounded-full mb-3"><div class="h-full bg-ember-500 rounded-full" style="width: 40%;"></div></div>
-          <p class="text-xs text-brown-700 leading-snug mb-3">Less than 25% of workforce shows public signal of AI tool usage. No company-wide training program announced. AIRI reference: <em>"AI Aware"</em> = 25–50% literate.</p>
-          <div class="mono text-[9px] text-brown-700/70 space-y-1">
-            <div>✗ No L&D AI track in 2025 ER</div>
-            <div>~ ~14 employees use #AIChampions</div>
-            <div>✗ Zero LinkedIn Learning partnership</div>
-          </div>
-        </div>
-
-        <!-- AI Talent -->
-        <div class="bg-cream-100 ring-card rounded-xl p-5">
-          <div class="flex items-baseline justify-between mb-2">
-            <div class="flex items-center gap-2">
-              <span class="mono text-[10px] text-brown-700/60">02</span>
-              <span class="font-bold text-brown-800">AI Talent</span>
-            </div>
-            <span class="chip bg-sun-500/30 text-brown-800">AI READY</span>
-          </div>
-          <div class="flex items-baseline gap-2 mb-2">
-            <span class="display text-3xl text-brown-800 stat-num">2.2</span>
-            <span class="mono text-[10px] text-brown-700/60">/ 4 · C</span>
-          </div>
-          <div class="h-1.5 bg-cream-200 rounded-full mb-3"><div class="h-full bg-sun-500 rounded-full" style="width: 55%;"></div></div>
-          <p class="text-xs text-brown-700 leading-snug mb-3">145 AI professionals visible (0.4% of workforce). ESI Leader benchmark: 1.8% of workforce. Talent depth is real but concentrated in a single business unit.</p>
-          <div class="mono text-[9px] text-brown-700/70 space-y-1">
-            <div>✓ 145 AI/ML/DS roles on LinkedIn</div>
-            <div>✓ 23 AI roles posted in last 90 days</div>
-            <div>✗ No CAIO; CIO leads AI by default</div>
-          </div>
-        </div>
-
-        <!-- Management Support -->
-        <div class="bg-cream-100 ring-card rounded-xl p-5">
-          <div class="flex items-baseline justify-between mb-2">
-            <div class="flex items-center gap-2">
-              <span class="mono text-[10px] text-brown-700/60">03</span>
-              <span class="font-bold text-brown-800">Management Support</span>
-            </div>
-            <span class="chip bg-sun-500/30 text-brown-800">AI READY</span>
-          </div>
-          <div class="flex items-baseline gap-2 mb-2">
-            <span class="display text-3xl text-brown-800 stat-num">2.4</span>
-            <span class="mono text-[10px] text-brown-700/60">/ 4 · C</span>
-          </div>
-          <div class="h-1.5 bg-cream-200 rounded-full mb-3"><div class="h-full bg-sun-500 rounded-full" style="width: 60%;"></div></div>
-          <p class="text-xs text-brown-700 leading-snug mb-3">CEO has named AI a strategic pillar in two 2025 earnings calls. Resources allocated, but no public roadmap. AIRI: <em>"AI Ready"</em> = resources allocated, no strategic roadmap.</p>
-          <div class="mono text-[9px] text-brown-700/70 space-y-1">
-            <div>✓ 6 mentions of AI in 2025 ER</div>
-            <div>✓ AI named as one of 4 strategic pillars</div>
-            <div>✗ No published AI capital plan</div>
-          </div>
-        </div>
-
-        <!-- AI Governance -->
-        <div class="bg-cream-100 ring-card rounded-xl p-5">
-          <div class="flex items-baseline justify-between mb-2">
-            <div class="flex items-center gap-2">
-              <span class="mono text-[10px] text-brown-700/60">04</span>
-              <span class="font-bold text-brown-800">AI Governance</span>
-            </div>
-            <span class="chip bg-ember-500/20 text-ember-600">AI AWARE</span>
-          </div>
-          <div class="flex items-baseline gap-2 mb-2">
-            <span class="display text-3xl text-brown-800 stat-num">1.8</span>
-            <span class="mono text-[10px] text-brown-700/60">/ 4 · D</span>
-          </div>
-          <div class="h-1.5 bg-cream-200 rounded-full mb-3"><div class="h-full bg-ember-500 rounded-full" style="width: 45%;"></div></div>
-          <p class="text-xs text-brown-700 leading-snug mb-3">Aware of AI governance as a topic; APRA-aligned. No published responsible-AI principles, no board-level AI committee, no model risk register disclosed.</p>
-          <div class="mono text-[9px] text-brown-700/70 space-y-1">
-            <div>✓ APRA prudential alignment mentioned</div>
-            <div>✗ No published AI ethics framework</div>
-            <div>✗ No board AI committee disclosed</div>
-          </div>
-        </div>
-
-        <!-- Business Use Case -->
-        <div class="bg-cream-100 ring-card rounded-xl p-5">
-          <div class="flex items-baseline justify-between mb-2">
-            <div class="flex items-center gap-2">
-              <span class="mono text-[10px] text-brown-700/60">05</span>
-              <span class="font-bold text-brown-800">Business Use Case</span>
-            </div>
-            <span class="chip bg-sun-500/30 text-brown-800">AI READY</span>
-          </div>
-          <div class="flex items-baseline gap-2 mb-2">
-            <span class="display text-3xl text-brown-800 stat-num">2.3</span>
-            <span class="mono text-[10px] text-brown-700/60">/ 4 · C</span>
-          </div>
-          <div class="h-1.5 bg-cream-200 rounded-full mb-3"><div class="h-full bg-sun-500 rounded-full" style="width: 58%;"></div></div>
-          <p class="text-xs text-brown-700 leading-snug mb-3">6 of ESI's 19 functional areas show public AI deployment. Concentrated in fraud detection and customer service — high value but narrow scope.</p>
-          <div class="mono text-[9px] text-brown-700/70 space-y-1">
-            <div>✓ Fraud detection, CX, IT ops named</div>
-            <div>~ Value props derived from peer reports</div>
-            <div>✗ No internal value-prop validation</div>
-          </div>
-        </div>
-
-        <!-- Adoption Measurement -->
-        <div class="bg-cream-100 ring-card rounded-xl p-5">
-          <div class="flex items-baseline justify-between mb-2">
-            <div class="flex items-center gap-2">
-              <span class="mono text-[10px] text-brown-700/60">06</span>
-              <span class="font-bold text-brown-800">Adoption Measurement</span>
-            </div>
-            <span class="chip bg-ember-500/30 text-ember-600">AI UNAWARE</span>
-          </div>
-          <div class="flex items-baseline gap-2 mb-2">
-            <span class="display text-3xl text-brown-800 stat-num">1.0</span>
-            <span class="mono text-[10px] text-brown-700/60">/ 4 · R</span>
-          </div>
-          <div class="h-1.5 bg-cream-200 rounded-full mb-3"><div class="h-full bg-ember-600 rounded-full" style="width: 25%;"></div></div>
-          <p class="text-xs text-brown-700 leading-snug mb-3">No AI productivity metric, ROI, or adoption rate disclosed in 2025 reporting. Matches the profile of the 79% of firms ESI identifies as posting negative AI ROI.</p>
-          <div class="mono text-[9px] text-brown-700/70 space-y-1">
-            <div>✗ No AI ROI in annual report</div>
-            <div>✗ No tools-per-employee KPI</div>
-            <div>✗ AI mentioned 11×, ROI 0× in Q4 call</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom benchmark row -->
-      <div class="mt-7 bg-brown-800 text-cream-50 rounded-xl p-5">
-        <div class="grid grid-cols-3 gap-6">
-          <div>
-            <div class="mono text-[10px] text-sun-500 mb-2 tracking-wider">ESI THOUGHTLAB · LEADER PREMIUM</div>
-            <div class="display text-2xl mb-1">21× <span class="text-cream-50/60 text-base">ROI vs Beginners</span></div>
-            <p class="text-xs text-cream-50/70">AI Leaders earn 4.3% on AI investments vs 0.2% for Beginners. The gap is workforce capability, not technology.</p>
-          </div>
-          <div>
-            <div class="mono text-[10px] text-sun-500 mb-2 tracking-wider">ESI · OVERPERFORMER GAP</div>
-            <div class="display text-2xl mb-1">88% <span class="text-cream-50/60 text-base">vs 2%</span></div>
-            <p class="text-xs text-cream-50/70">Share of overperformers vs underperformers that train non-data-scientists in AI. Apex matches the 2% pattern.</p>
-          </div>
-          <div>
-            <div class="mono text-[10px] text-sun-500 mb-2 tracking-wider">O'REILLY · BLOCKED ROI</div>
-            <div class="display text-2xl mb-1">79% <span class="text-cream-50/60 text-base">have no measurement</span></div>
-            <p class="text-xs text-cream-50/70">Of firms reporting negative AI ROI, 79% lack measurement systems — the same gap Apex shows on Dimension 06.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <footer class="paper-footer">
-      <span class="mono text-brown-700/60">SOLARIS · BUILD CLUB · solaris.buildclub.ai</span>
-      <span class="mono text-brown-700/60">PAGE 3 / 5</span>
-    </footer>
-  </article>
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- PAGE 4 — METHODOLOGY                             -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <article class="paper">
-    <header class="paper-header">
-      <div class="flex items-center gap-2">
-        <div class="w-5 h-5 rounded-full bg-gradient-to-br from-sun-400 to-ember-500"></div>
-        <span class="display text-brown-800 text-base">SOLARIS</span>
-        <span class="mono text-[10px] text-brown-700/60">by Build Club</span>
-      </div>
-      <span class="mono text-[10px] text-brown-700/60">SCORECARD: APEX FINANCIAL GROUP · Q2 2026</span>
-    </header>
-
-    <div class="paper-inner paper-content">
-      <h2 class="display text-3xl text-brown-800 mb-2"><span class="text-ember-600">Methodology</span> &amp; framework</h2>
-      <p class="text-sm text-brown-700 leading-relaxed mb-8 max-w-3xl">
-        The Solaris model is a synthesis of four respected AI maturity frameworks, calibrated against the largest publicly available enterprise AI dataset and validated through Build Club's hands-on engagements with 200+ organisations across APAC.
-      </p>
-
-      <!-- Source frameworks -->
-      <h3 class="display text-xl text-brown-800 mb-4">Source frameworks</h3>
-      <div class="grid grid-cols-2 gap-4 mb-8">
-        <div class="bg-cream-100 ring-card rounded-xl p-5">
-          <div class="flex items-center justify-between mb-2">
-            <div class="font-bold text-brown-800">AIRI — AI Singapore</div>
-            <span class="chip bg-sky/40 text-brown-800">PRIMARY</span>
-          </div>
-          <p class="text-xs text-brown-700 leading-relaxed">4 pillars × 9 dimensions × 4 readiness levels (AI Unaware → Aware → Ready → Competent). Solaris adopts AIRI's <strong>Organisational Readiness pillar</strong> (4 dims) as its workforce backbone, plus Business Use Case.</p>
-        </div>
-        <div class="bg-cream-100 ring-card rounded-xl p-5">
-          <div class="flex items-center justify-between mb-2">
-            <div class="font-bold text-brown-800">ESI ThoughtLab</div>
-            <span class="chip bg-mint text-brown-800">BENCHMARK DATA</span>
-          </div>
-          <p class="text-xs text-brown-700 leading-relaxed">Driving ROI Through AI (2020). Survey of 1,200 firms across 12 industries and 15 countries (combined revenue $15.5T). Source for 4-stage maturity benchmarks and ROI correlations.</p>
-        </div>
-        <div class="bg-cream-100 ring-card rounded-xl p-5">
-          <div class="flex items-center justify-between mb-2">
-            <div class="font-bold text-brown-800">Element AI</div>
-            <span class="chip bg-sun-500/30 text-brown-800">FRAMEWORK</span>
-          </div>
-          <p class="text-xs text-brown-700 leading-relaxed">AI Maturity Framework (5×5 grid: Strategy, Data, Technology, People, Governance × Exploring → Transforming). Source for Solaris's stage progression model and dimension weighting.</p>
-        </div>
-        <div class="bg-cream-100 ring-card rounded-xl p-5">
-          <div class="flex items-center justify-between mb-2">
-            <div class="font-bold text-brown-800">O'Reilly &amp; Gartner</div>
-            <span class="chip bg-peach text-brown-800">VALIDATION</span>
-          </div>
-          <p class="text-xs text-brown-700 leading-relaxed">O'Reilly AI Adoption in the Enterprise (2022, n≈2,800) and Gartner Government AI Survey (n=53). Used to validate adoption-stage distributions and challenge prevalence by sector.</p>
-        </div>
-      </div>
-
-      <!-- The model -->
-      <h3 class="display text-xl text-brown-800 mb-4">The Solaris model — at a glance</h3>
-      <div class="bg-cream-100 ring-card rounded-xl p-6 mb-8">
-        <div class="grid grid-cols-12 gap-4">
-          <div class="col-span-5">
-            <div class="mono text-[10px] text-brown-700/60 tracking-widest mb-2">SCORING SCALE (PER DIMENSION)</div>
-            <div class="space-y-2">
-              <div class="flex items-center gap-3"><span class="w-7 h-7 rounded-md bg-ember-600 text-cream-50 mono text-[10px] flex items-center justify-center font-bold">1</span><div><div class="font-semibold text-sm text-brown-800">AI Unaware</div><div class="mono text-[9px] text-brown-700/60">&lt; 1.0 — no public signal</div></div></div>
-              <div class="flex items-center gap-3"><span class="w-7 h-7 rounded-md bg-ember-500 text-cream-50 mono text-[10px] flex items-center justify-center font-bold">2</span><div><div class="font-semibold text-sm text-brown-800">AI Aware</div><div class="mono text-[9px] text-brown-700/60">1.0–1.9 — concept acknowledged</div></div></div>
-              <div class="flex items-center gap-3"><span class="w-7 h-7 rounded-md bg-sun-500 text-brown-800 mono text-[10px] flex items-center justify-center font-bold">3</span><div><div class="font-semibold text-sm text-brown-800">AI Ready</div><div class="mono text-[9px] text-brown-700/60">2.0–2.5 — practice in flight</div></div></div>
-              <div class="flex items-center gap-3"><span class="w-7 h-7 rounded-md bg-mint text-brown-800 mono text-[10px] flex items-center justify-center font-bold">4</span><div><div class="font-semibold text-sm text-brown-800">AI Competent</div><div class="mono text-[9px] text-brown-700/60">&gt; 2.5 — embedded at scale</div></div></div>
-            </div>
-          </div>
-          <div class="col-span-7">
-            <div class="mono text-[10px] text-brown-700/60 tracking-widest mb-2">DIMENSIONS &amp; WEIGHTING</div>
-            <table class="w-full text-xs">
-              <thead>
-                <tr class="border-b border-brown-800/15">
-                  <th class="text-left py-1.5 pr-2 font-semibold text-brown-800">Dimension</th>
-                  <th class="text-right py-1.5 px-2 font-semibold text-brown-800">Source</th>
-                  <th class="text-right py-1.5 pl-2 font-semibold text-brown-800">Weight</th>
-                </tr>
-              </thead>
-              <tbody class="text-brown-700">
-                <tr class="border-b border-brown-800/8"><td class="py-1.5">AI Literacy</td><td class="text-right mono text-[10px] text-brown-700/60">AIRI</td><td class="text-right mono">22%</td></tr>
-                <tr class="border-b border-brown-800/8"><td class="py-1.5">AI Talent</td><td class="text-right mono text-[10px] text-brown-700/60">AIRI + ESI</td><td class="text-right mono">18%</td></tr>
-                <tr class="border-b border-brown-800/8"><td class="py-1.5">Management Support</td><td class="text-right mono text-[10px] text-brown-700/60">AIRI</td><td class="text-right mono">15%</td></tr>
-                <tr class="border-b border-brown-800/8"><td class="py-1.5">AI Governance</td><td class="text-right mono text-[10px] text-brown-700/60">AIRI + EthicsGrade</td><td class="text-right mono">15%</td></tr>
-                <tr class="border-b border-brown-800/8"><td class="py-1.5">Business Use Case</td><td class="text-right mono text-[10px] text-brown-700/60">AIRI + Element AI</td><td class="text-right mono">12%</td></tr>
-                <tr class="border-b border-brown-800/8"><td class="py-1.5">Adoption Measurement</td><td class="text-right mono text-[10px] text-brown-700/60">ESI + O'Reilly</td><td class="text-right mono">18%</td></tr>
-                <tr class="font-semibold text-brown-800"><td class="py-1.5">Composite</td><td class="text-right"></td><td class="text-right mono">100%</td></tr>
-              </tbody>
-            </table>
-            <p class="mt-3 mono text-[9px] text-brown-700/60">Weighting reflects each dimension's correlation with realised AI ROI in the ESI ThoughtLab dataset. Higher weight on AI Literacy and Adoption Measurement reflects the largest leader/laggard delta in the underlying data.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Composite to grade -->
-      <h3 class="display text-xl text-brown-800 mb-4">From composite score to letter grade</h3>
-      <div class="bg-cream-100 ring-card rounded-xl p-6 mb-8">
-        <p class="text-xs text-brown-700 leading-relaxed mb-4">Each dimension's 1–4 score is normalised to 0–100 and multiplied by its weight. The composite maps to a letter grade adapted from the EthicsGrade rating scale (used by ESG raters since 2020):</p>
-        <div class="grid grid-cols-7 gap-1 rounded-lg overflow-hidden text-center mb-3">
-          <div class="bg-brown-700 text-cream-50 py-2"><div class="display text-lg">NR</div><div class="mono text-[9px] opacity-70">0–40</div></div>
-          <div class="bg-ember-600 text-cream-50 py-2"><div class="display text-lg">R</div><div class="mono text-[9px] opacity-70">40–50</div></div>
-          <div class="bg-ember-500 text-cream-50 py-2 ring-2 ring-brown-800 ring-inset"><div class="display text-lg">D</div><div class="mono text-[9px] opacity-70">50–60</div></div>
-          <div class="bg-sun-500 text-brown-800 py-2"><div class="display text-lg">C</div><div class="mono text-[9px] opacity-70">60–70</div></div>
-          <div class="bg-sun-400 text-brown-800 py-2"><div class="display text-lg">B</div><div class="mono text-[9px] opacity-70">70–80</div></div>
-          <div class="bg-mint text-brown-800 py-2"><div class="display text-lg">A</div><div class="mono text-[9px] opacity-70">80–90</div></div>
-          <div class="text-brown-800 py-2" style="background:#8FD9B0;"><div class="display text-lg">A+</div><div class="mono text-[9px] opacity-70">90–100</div></div>
-        </div>
-        <div class="grid grid-cols-7 gap-1 text-[9px] text-brown-700/70 text-center mono leading-tight">
-          <div>Not<br/>Rated</div>
-          <div>Reactive</div>
-          <div>Defensive</div>
-          <div>Compliant</div>
-          <div>Managerial</div>
-          <div>Strategic</div>
-          <div>Civic<br/>Leader</div>
-        </div>
-      </div>
-
-      <!-- Public signal taxonomy -->
-      <h3 class="display text-xl text-brown-800 mb-4">Public signal taxonomy (32 indicators)</h3>
-      <div class="grid grid-cols-3 gap-4 text-xs text-brown-700">
-        <div class="bg-cream-100 ring-card rounded-xl p-4">
-          <div class="font-semibold text-brown-800 mb-2">People signals</div>
-          <ul class="space-y-1 mono text-[10px] text-brown-700/80">
-            <li>· LinkedIn AI title share</li>
-            <li>· AI roles posted (90d)</li>
-            <li>· LinkedIn Learning programs</li>
-            <li>· Employee AI champion posts</li>
-            <li>· Glassdoor AI mentions</li>
-            <li>· Conference appearances</li>
-            <li>· Internal hashtag activity</li>
-          </ul>
-        </div>
-        <div class="bg-cream-100 ring-card rounded-xl p-4">
-          <div class="font-semibold text-brown-800 mb-2">Governance signals</div>
-          <ul class="space-y-1 mono text-[10px] text-brown-700/80">
-            <li>· Published AI principles</li>
-            <li>· Board AI committee</li>
-            <li>· CAIO/CDO presence</li>
-            <li>· Annual report AI mentions</li>
-            <li>· ESG framework alignment</li>
-            <li>· Regulatory submissions</li>
-            <li>· Model card publications</li>
-          </ul>
-        </div>
-        <div class="bg-cream-100 ring-card rounded-xl p-4">
-          <div class="font-semibold text-brown-800 mb-2">Adoption signals</div>
-          <ul class="space-y-1 mono text-[10px] text-brown-700/80">
-            <li>· Use case case studies</li>
-            <li>· Press release AI mentions</li>
-            <li>· Earnings call AI density</li>
-            <li>· Disclosed AI ROI</li>
-            <li>· Productivity KPIs</li>
-            <li>· Customer-facing AI features</li>
-            <li>· GitHub org activity</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <footer class="paper-footer">
-      <span class="mono text-brown-700/60">SOLARIS · BUILD CLUB · solaris.buildclub.ai</span>
-      <span class="mono text-brown-700/60">PAGE 4 / 5</span>
-    </footer>
-  </article>
-
-  <!-- ═══════════════════════════════════════════════ -->
-  <!-- PAGE 5 — THE BRIDGE & CTA                        -->
-  <!-- ═══════════════════════════════════════════════ -->
-  <article class="paper">
-    <header class="paper-header">
-      <div class="flex items-center gap-2">
-        <div class="w-5 h-5 rounded-full bg-gradient-to-br from-sun-400 to-ember-500"></div>
-        <span class="display text-brown-800 text-base">SOLARIS</span>
-        <span class="mono text-[10px] text-brown-700/60">by Build Club</span>
-      </div>
-      <span class="mono text-[10px] text-brown-700/60">SCORECARD: APEX FINANCIAL GROUP · Q2 2026</span>
-    </header>
-
-    <div class="paper-inner paper-content">
-      <h2 class="display text-3xl text-brown-800 mb-2">From <span class="text-ember-600">D</span> to <span class="text-mint" style="color:#2D8059;">A</span> — the Solaris bridge</h2>
-      <p class="text-sm text-brown-700 leading-relaxed mb-7 max-w-3xl">
-        Each scorecard gap maps to a Solaris module. Together they form the only end-to-end pathway from <em>AI Aware</em> to <em>AI Competent</em>, in cohorts of 4 weeks.
-      </p>
-
-      <div class="space-y-3 mb-10">
-        <!-- Gap 1 -->
-        <div class="grid grid-cols-12 gap-3 items-stretch">
-          <div class="col-span-4 bg-ember-500/10 rounded-xl p-4 border-l-4 border-ember-500">
-            <div class="mono text-[10px] text-ember-600 mb-1">DIM 01 · LITERACY</div>
-            <div class="font-semibold text-sm text-brown-800">Workforce fluency at &lt;25%</div>
-            <div class="mono text-[10px] text-brown-700/70 mt-1">Score: 1.6 / 4</div>
-          </div>
-          <div class="col-span-8 bg-cream-100 rounded-xl p-4 border-l-4 border-sun-500">
-            <div class="flex items-start gap-3">
-              <div class="w-9 h-9 rounded-lg bg-sun-500 flex items-center justify-center flex-shrink-0">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#502C00" stroke-width="2.2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              </div>
-              <div>
-                <div class="mono text-[10px] text-brown-700/70 mb-1">SOLARIS · 4-WEEK ACCELERATOR</div>
-                <p class="text-xs text-brown-700 leading-relaxed">Lead the Way → AI for Your Role → Building → Showcasing. Personalised paths per role. Shifts workforce literacy from <strong>&lt;25%</strong> to <strong>&gt;75%</strong> in one cohort cycle.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gap 2 -->
-        <div class="grid grid-cols-12 gap-3 items-stretch">
-          <div class="col-span-4 bg-ember-500/10 rounded-xl p-4 border-l-4 border-ember-500">
-            <div class="mono text-[10px] text-ember-600 mb-1">DIM 02 · TALENT</div>
-            <div class="font-semibold text-sm text-brown-800">5× behind Leader benchmark</div>
-            <div class="mono text-[10px] text-brown-700/70 mt-1">Score: 2.2 / 4</div>
-          </div>
-          <div class="col-span-8 bg-cream-100 rounded-xl p-4 border-l-4 border-sun-500">
-            <div class="flex items-start gap-3">
-              <div class="w-9 h-9 rounded-lg bg-sun-500 flex items-center justify-center flex-shrink-0">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#502C00" stroke-width="2.2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-              </div>
-              <div>
-                <div class="mono text-[10px] text-brown-700/70 mb-1">SOLARIS · CAPABILITY ASSESSMENT</div>
-                <p class="text-xs text-brown-700 leading-relaxed">Diagnoses AI fluency by role; identifies the highest-leverage uplift per business unit. Surfaces hidden internal talent — most enterprises have 3–5× more latent AI capability than their org chart suggests.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gap 3 -->
-        <div class="grid grid-cols-12 gap-3 items-stretch">
-          <div class="col-span-4 bg-ember-500/10 rounded-xl p-4 border-l-4 border-ember-500">
-            <div class="mono text-[10px] text-ember-600 mb-1">DIM 04 · GOVERNANCE</div>
-            <div class="font-semibold text-sm text-brown-800">No published responsible-AI framework</div>
-            <div class="mono text-[10px] text-brown-700/70 mt-1">Score: 1.8 / 4</div>
-          </div>
-          <div class="col-span-8 bg-cream-100 rounded-xl p-4 border-l-4 border-sky">
-            <div class="flex items-start gap-3">
-              <div class="w-9 h-9 rounded-lg bg-sky flex items-center justify-center flex-shrink-0">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#502C00" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <div>
-                <div class="mono text-[10px] text-brown-700/70 mb-1">SOLARIS · AI OPS DASHBOARD</div>
-                <p class="text-xs text-brown-700 leading-relaxed">Governance &amp; usage analytics across teams. Generates the model risk register, audit trail, and board-ready reporting that close the published-framework gap.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gap 4 -->
-        <div class="grid grid-cols-12 gap-3 items-stretch">
-          <div class="col-span-4 bg-ember-500/10 rounded-xl p-4 border-l-4 border-ember-500">
-            <div class="mono text-[10px] text-ember-600 mb-1">DIM 06 · MEASUREMENT</div>
-            <div class="font-semibold text-sm text-brown-800">No ROI or adoption KPI disclosed</div>
-            <div class="mono text-[10px] text-brown-700/70 mt-1">Score: 1.0 / 4</div>
-          </div>
-          <div class="col-span-8 bg-cream-100 rounded-xl p-4 border-l-4 border-mint">
-            <div class="flex items-start gap-3">
-              <div class="w-9 h-9 rounded-lg bg-mint flex items-center justify-center flex-shrink-0">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#502C00" stroke-width="2.2"><line x1="3" y1="3" x2="3" y2="21"/><line x1="3" y1="21" x2="21" y2="21"/><polyline points="7 14 11 10 15 14 21 8"/></svg>
-              </div>
-              <div>
-                <div class="mono text-[10px] text-brown-700/70 mb-1">SOLARIS · AI OPS DASHBOARD &amp; CAMPUS</div>
-                <p class="text-xs text-brown-700 leading-relaxed">Per-employee progress tracking, adoption rates, productivity uplift. Turns invisible spend into a defensible CFO-ready KPI. Connects to the Campus community to celebrate progress and reinforce adoption culture.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Phase outcome -->
-      <div class="grid grid-cols-3 gap-4 mb-10">
-        <div class="bg-cream-100 ring-card rounded-xl p-5">
-          <div class="mono text-[10px] text-ember-600 mb-2 tracking-widest">WEEK 0</div>
-          <div class="display text-xl text-brown-800 mb-2">Diagnose</div>
-          <p class="text-xs text-brown-700 leading-relaxed">Capability assessment baseline by role and business unit. Establishes today's score on each of the 6 dimensions.</p>
-        </div>
-        <div class="bg-sun-500 rounded-xl p-5">
-          <div class="mono text-[10px] text-brown-800 mb-2 tracking-widest">WEEKS 1–4</div>
-          <div class="display text-xl text-brown-800 mb-2">Develop</div>
-          <p class="text-xs text-brown-800 leading-relaxed">Cohort accelerator. Role-specific learning paths, mandatory courses, capstone projects, demo presentations.</p>
-        </div>
-        <div class="bg-cream-100 ring-card rounded-xl p-5">
-          <div class="mono text-[10px] text-ember-600 mb-2 tracking-widest">ONGOING</div>
-          <div class="display text-xl text-brown-800 mb-2">Govern</div>
-          <p class="text-xs text-brown-700 leading-relaxed">AI Ops dashboard reports adoption, uplift, and risk to the C-suite. Quarterly re-scoring tracks band movement.</p>
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div class="bg-sun-500 rounded-2xl p-8 text-center relative overflow-hidden">
-        <div class="absolute inset-0 grain opacity-20"></div>
-        <svg class="absolute -top-4 -right-4 opacity-30" width="120" height="120" viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r="22" fill="#FFA166"/>
-          <g stroke="#502C00" stroke-width="2.5" stroke-linecap="round">
-            <line x1="60" y1="8" x2="60" y2="22"/><line x1="60" y1="98" x2="60" y2="112"/><line x1="8" y1="60" x2="22" y2="60"/><line x1="98" y1="60" x2="112" y2="60"/><line x1="22.6" y1="22.6" x2="32.5" y2="32.5"/><line x1="87.5" y1="87.5" x2="97.4" y2="97.4"/><line x1="22.6" y1="97.4" x2="32.5" y2="87.5"/><line x1="87.5" y1="32.5" x2="97.4" y2="22.6"/>
-          </g>
-        </svg>
-        <div class="relative">
-          <div class="mono text-[10px] text-brown-800/60 tracking-widest mb-3">SCORE YOUR ORGANISATION</div>
-          <h3 class="display text-3xl text-brown-800 mb-3">Get this scorecard for your company.</h3>
-          <p class="text-sm text-brown-800/80 mb-6 max-w-xl mx-auto leading-relaxed">
-            We spend a week on public signals — LinkedIn, annual reports, press, GitHub — and walk you through where your workforce sits. 30-minute discovery call to see if it's a fit.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            <a href="https://solaris.buildclub.ai" target="_blank" rel="noopener" class="pill-btn pill-btn-dark">
-              Book a discovery call
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-            <a href="https://solaris.buildclub.ai" target="_blank" rel="noopener" class="pill-btn" style="background: rgba(255,252,250,0.4); color: #502C00;">Explore Solaris →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sample disclaimer -->
-      <div class="mt-8 pt-6 border-t border-brown-800/10 text-xs text-brown-700/70">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="chip bg-sun-500/30 text-brown-800">SAMPLE REPORT · DEMO ONLY</span>
-        </div>
-        <p>"Apex Financial Group" is a fictional composite for demonstration. Public signals listed are representative of typical Australian financial services patterns, not actual findings. The Solaris methodology is real; the subject is illustrative.</p>
-      </div>
-    </div>
-
-    <footer class="paper-footer">
-      <span class="mono text-brown-700/60">SOLARIS · BUILD CLUB · solaris.buildclub.ai</span>
-      <span class="mono text-brown-700/60">PAGE 5 / 5</span>
-    </footer>
-  </article>
-
-  <!-- Bottom margin -->
-  <div class="h-16"></div>
+  </div>
 
 </body>
 </html>
