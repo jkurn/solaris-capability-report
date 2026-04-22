@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Workforce Capability Report — Apex Financial Group</title>
+  <meta name="description" content="A capability assessment of Apex Financial Group's AI workforce readiness, benchmarked against the 1,200-firm ESI ThoughtLab study. Powered by Solaris by Build Club." />
+  <meta property="og:title" content="AI Workforce Capability Report — Apex Financial Group" />
+  <meta property="og:description" content="79% of firms with negative AI ROI lack a measurement system. Where does Apex stand?" />
+  <meta property="og:type" content="website" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            display: ['Fraunces', 'Georgia', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            ink: { 950: '#0B0F19', 900: '#111827', 800: '#1F2937', 700: '#374151' },
+            cream: { 50: '#FBF8F3', 100: '#F5EFE5', 200: '#EBE2D2' },
+            solar: { 300: '#FCD34D', 400: '#FBBF24', 500: '#F59E0B', 600: '#D97706' },
+            ember: { 500: '#EF4444', 600: '#DC2626' },
+            sage: { 500: '#10B981', 600: '#059669' },
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', system-ui, sans-serif; background: #FBF8F3; color: #0B0F19; }
+    .display { font-family: 'Fraunces', Georgia, serif; font-feature-settings: 'ss01'; letter-spacing: -0.025em; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .grain { background-image: radial-gradient(rgba(11,15,25,0.04) 1px, transparent 0); background-size: 24px 24px; }
+    .ring-card { box-shadow: 0 0 0 1px rgba(11,15,25,0.08), 0 1px 2px rgba(11,15,25,0.04); }
+    .accent-line { background: linear-gradient(90deg, #F59E0B 0%, #FBBF24 50%, #FCD34D 100%); }
+    .score-fill { transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+    details > summary { list-style: none; cursor: pointer; }
+    details > summary::-webkit-details-marker { display: none; }
+    .chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; font-size: 11px; font-weight: 600; border-radius: 999px; letter-spacing: 0.02em; }
+    .stat-num { font-variant-numeric: tabular-nums; }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white; }
+    }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 1: HERO / COVER                          -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <header class="relative overflow-hidden bg-ink-950 text-cream-50">
+    <div class="absolute inset-0 grain opacity-40"></div>
+    <div class="absolute top-0 left-0 right-0 h-[2px] accent-line"></div>
+
+    <!-- Top bar -->
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-12 pt-6 pb-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-solar-300 to-solar-600 flex items-center justify-center">
+          <span class="display text-ink-950 font-black text-sm">S</span>
+        </div>
+        <div>
+          <div class="font-bold text-sm tracking-tight">Solaris</div>
+          <div class="mono text-[10px] text-cream-50/50 -mt-0.5">by Build Club</div>
+        </div>
+      </div>
+      <div class="hidden md:flex items-center gap-6 text-xs text-cream-50/60">
+        <span class="mono">REPORT.v1.0</span>
+        <span class="mono">04 / 2026</span>
+        <span class="chip bg-solar-500/10 text-solar-300 border border-solar-500/20">SAMPLE</span>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-20">
+      <div class="mono text-xs text-solar-400 mb-6 tracking-widest">AI WORKFORCE CAPABILITY REPORT</div>
+      <h1 class="display text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] mb-8">
+        Apex Financial<br/>
+        <span class="text-cream-50/40">is an</span> <span class="text-solar-400 italic">Implementer</span>.
+      </h1>
+      <p class="text-lg md:text-xl text-cream-50/70 max-w-3xl leading-relaxed mb-10">
+        On the four-stage AI maturity curve from the ESI ThoughtLab study of 1,200 firms, Apex sits in the second quartile — ahead of beginners, but a long way from the leaders generating <span class="text-solar-400 font-bold">21× the ROI</span>.
+      </p>
+
+      <!-- Maturity strip -->
+      <div class="mb-12">
+        <div class="flex items-center justify-between mb-3 mono text-xs text-cream-50/40">
+          <span>BEGINNER</span><span>IMPLEMENTER</span><span>ADVANCER</span><span>LEADER</span>
+        </div>
+        <div class="relative h-3 bg-cream-50/10 rounded-full overflow-hidden">
+          <div class="absolute inset-y-0 left-0 w-[60%] bg-gradient-to-r from-solar-600 to-solar-400 rounded-full"></div>
+          <div class="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-cream-50 rounded-full ring-4 ring-solar-400/30" style="left: calc(60% - 10px);"></div>
+        </div>
+        <div class="mt-3 flex items-center justify-between text-xs text-cream-50/50">
+          <span class="mono">SCORE: <span class="text-solar-400 font-bold">2.4 / 4.0</span></span>
+          <span class="mono">INDUSTRY (BANKS) MEDIAN: 2.7</span>
+          <span class="mono">LEADER THRESHOLD: 3.5</span>
+        </div>
+      </div>
+
+      <!-- Hero KPI grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-cream-50/5 backdrop-blur border border-cream-50/10 rounded-lg p-5">
+          <div class="mono text-[10px] text-cream-50/40 mb-1">EST. AI WORKFORCE</div>
+          <div class="display text-3xl font-black stat-num">145</div>
+          <div class="text-xs text-cream-50/50 mt-1">vs 715 (Leader avg)</div>
+        </div>
+        <div class="bg-cream-50/5 backdrop-blur border border-cream-50/10 rounded-lg p-5">
+          <div class="mono text-[10px] text-cream-50/40 mb-1">FLUENCY ACROSS WORKFORCE</div>
+          <div class="display text-3xl font-black stat-num">~8<span class="text-solar-400">%</span></div>
+          <div class="text-xs text-cream-50/50 mt-1">vs 88% (Overperformer)</div>
+        </div>
+        <div class="bg-cream-50/5 backdrop-blur border border-cream-50/10 rounded-lg p-5">
+          <div class="mono text-[10px] text-cream-50/40 mb-1">PUBLIC AI USE CASES</div>
+          <div class="display text-3xl font-black stat-num">6<span class="text-cream-50/30 text-xl">/19</span></div>
+          <div class="text-xs text-cream-50/50 mt-1">ESI functional areas</div>
+        </div>
+        <div class="bg-cream-50/5 backdrop-blur border border-cream-50/10 rounded-lg p-5">
+          <div class="mono text-[10px] text-cream-50/40 mb-1">DISCLOSED AI ROI</div>
+          <div class="display text-3xl font-black stat-num text-ember-500">—</div>
+          <div class="text-xs text-cream-50/50 mt-1">No published metric</div>
+        </div>
+      </div>
+
+      <div class="mt-10 mono text-[11px] text-cream-50/40 tracking-wider">
+        METHODOLOGY · Public signals only (LinkedIn, annual report, press, GitHub, earnings calls). No proprietary data accessed. Benchmarks via ESI ThoughtLab "Driving ROI Through AI" (Sep 2020), n=1,200 firms.
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 2: THE CRISIS                            -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="relative bg-cream-50 py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-4">
+          <div class="mono text-xs text-solar-600 tracking-widest mb-4">01 — THE CONTEXT</div>
+          <h2 class="display text-4xl md:text-5xl font-black leading-tight mb-6">
+            Most AI transformations don't pay back.
+          </h2>
+          <p class="text-ink-700 leading-relaxed">
+            ESI ThoughtLab benchmarked 1,200 firms with combined revenue of $15.5T. They measured firms on two axes — implementation depth and effectiveness — and sorted them into four maturity stages. The findings reframe what "AI strategy" really means.
+          </p>
+        </div>
+        <div class="md:col-span-8 grid sm:grid-cols-3 gap-4">
+          <div class="bg-white ring-card rounded-2xl p-6">
+            <div class="display text-5xl font-black text-ember-500 stat-num mb-2">40%</div>
+            <p class="text-sm text-ink-700 leading-snug">of AI projects across the 1,200-firm sample show <span class="font-bold">zero or negative</span> returns.</p>
+          </div>
+          <div class="bg-white ring-card rounded-2xl p-6">
+            <div class="display text-5xl font-black text-ember-500 stat-num mb-2">79%</div>
+            <p class="text-sm text-ink-700 leading-snug">of firms with negative AI ROI <span class="font-bold">have no measurement system</span> in place.</p>
+          </div>
+          <div class="bg-white ring-card rounded-2xl p-6">
+            <div class="display text-5xl font-black text-ember-500 stat-num mb-2">17 mo</div>
+            <p class="text-sm text-ink-700 leading-snug">average payback period — and it's <span class="font-bold">20 months</span> for beginners. Leaders break even in 14.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ROI gap chart -->
+      <div class="mt-16 bg-ink-950 text-cream-50 rounded-3xl p-8 md:p-12 overflow-hidden relative">
+        <div class="absolute top-0 right-0 w-1/3 h-full grain opacity-20"></div>
+        <div class="grid md:grid-cols-12 gap-8 relative">
+          <div class="md:col-span-5">
+            <div class="mono text-xs text-solar-400 tracking-widest mb-3">THE LEADER PREMIUM</div>
+            <h3 class="display text-3xl md:text-4xl font-black leading-tight mb-4">
+              The ROI curve is not linear. It is a hockey stick.
+            </h3>
+            <p class="text-cream-50/60 text-sm leading-relaxed">
+              Returns stay flat until firms scale AI across the enterprise. Beginners and Implementers earn ~0% on AI investments. Leaders earn 4.3% — a <span class="text-solar-400 font-bold">21× premium</span>. The gap is people, not models.
+            </p>
+          </div>
+          <div class="md:col-span-7">
+            <div class="space-y-4">
+              <!-- Beginner -->
+              <div>
+                <div class="flex items-baseline justify-between mb-1">
+                  <span class="mono text-xs text-cream-50/50">BEGINNER</span>
+                  <span class="display font-bold stat-num">0.2%</span>
+                </div>
+                <div class="h-6 bg-cream-50/10 rounded">
+                  <div class="h-full bg-cream-50/30 rounded" style="width: 4%;"></div>
+                </div>
+              </div>
+              <!-- Implementer (us) -->
+              <div>
+                <div class="flex items-baseline justify-between mb-1">
+                  <span class="mono text-xs text-solar-400">IMPLEMENTER · APEX IS HERE</span>
+                  <span class="display font-bold stat-num text-solar-400">0.4%</span>
+                </div>
+                <div class="h-6 bg-cream-50/10 rounded">
+                  <div class="h-full bg-solar-500 rounded" style="width: 9%;"></div>
+                </div>
+              </div>
+              <!-- Advancer -->
+              <div>
+                <div class="flex items-baseline justify-between mb-1">
+                  <span class="mono text-xs text-cream-50/50">ADVANCER</span>
+                  <span class="display font-bold stat-num">1.5%</span>
+                </div>
+                <div class="h-6 bg-cream-50/10 rounded">
+                  <div class="h-full bg-cream-50/40 rounded" style="width: 35%;"></div>
+                </div>
+              </div>
+              <!-- Leader -->
+              <div>
+                <div class="flex items-baseline justify-between mb-1">
+                  <span class="mono text-xs text-sage-500">LEADER</span>
+                  <span class="display font-bold stat-num text-sage-500">4.3%</span>
+                </div>
+                <div class="h-6 bg-cream-50/10 rounded">
+                  <div class="h-full bg-sage-500 rounded" style="width: 100%;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 pt-6 border-t border-cream-50/10 text-xs text-cream-50/40 mono">
+              Source: ESI ThoughtLab, Driving ROI Through AI (2020), Avg ROI by maturity stage. n=1,200.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 3: SCORECARD                             -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="bg-cream-100 py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="mb-14 max-w-3xl">
+        <div class="mono text-xs text-solar-600 tracking-widest mb-4">02 — THE SCORECARD</div>
+        <h2 class="display text-4xl md:text-5xl font-black leading-tight mb-6">
+          Four dimensions. Four widening gaps.
+        </h2>
+        <p class="text-ink-700 leading-relaxed text-lg">
+          ESI's research surfaces a set of capabilities that separate the 15% of firms generating real AI returns from the 85% that don't. We scored Apex on the four where workforce readiness — not technology — is the deciding factor.
+        </p>
+      </div>
+
+      <!-- Dimension 1: AI Talent Density -->
+      <article class="bg-white ring-card rounded-3xl p-8 md:p-12 mb-8">
+        <div class="grid md:grid-cols-12 gap-8">
+          <div class="md:col-span-5">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-solar-100 bg-solar-500/10 flex items-center justify-center">
+                <span class="mono font-bold text-solar-600">01</span>
+              </div>
+              <div>
+                <div class="mono text-[10px] text-ink-700/50 tracking-widest">DIMENSION</div>
+                <div class="font-bold text-lg">AI Talent Density</div>
+              </div>
+            </div>
+            <h3 class="display text-3xl font-black mb-3 leading-tight">A 5× shortfall, hidden by big-company optics.</h3>
+            <p class="text-ink-700 mb-6 leading-relaxed">Apex's ~145 visible AI/ML professionals look impressive on paper. Benchmarked against the ESI Leader average of 715 AI staff, they're operating at 1/5th the talent density of the firms generating real returns.</p>
+            <div class="flex items-baseline gap-4 mb-2">
+              <span class="display text-6xl font-black stat-num">2.5</span>
+              <span class="display text-2xl text-ink-700/40 stat-num">/ 4</span>
+              <span class="chip bg-solar-500/10 text-solar-600">IMPLEMENTER</span>
+            </div>
+            <div class="h-2 bg-cream-200 rounded-full overflow-hidden">
+              <div class="h-full bg-solar-500 score-fill" style="width: 62.5%;"></div>
+            </div>
+          </div>
+          <div class="md:col-span-7 space-y-5">
+            <div>
+              <div class="mono text-[10px] text-ink-700/50 tracking-widest mb-2">PUBLIC SIGNALS DETECTED</div>
+              <div class="space-y-2">
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-sage-600 mt-0.5">✓</span><span><strong>145</strong> employees with "AI", "ML", "Data Scientist", or "MLOps" in LinkedIn title</span></div>
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-sage-600 mt-0.5">✓</span><span><strong>23</strong> AI-related roles posted in last 90 days (LinkedIn Jobs)</span></div>
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-ember-500 mt-0.5">✗</span><span>No Chief AI Officer (CAIO) listed on Investor Relations page</span></div>
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-ember-500 mt-0.5">✗</span><span>Head of Data reports two layers below CEO</span></div>
+              </div>
+            </div>
+            <div class="bg-cream-50 rounded-xl p-5 border-l-4 border-solar-500">
+              <div class="mono text-[10px] text-solar-600 tracking-widest mb-2">ESI BENCHMARK</div>
+              <div class="grid grid-cols-3 gap-4 text-center">
+                <div><div class="display text-2xl font-black stat-num">86</div><div class="text-[10px] text-ink-700/60 mono mt-0.5">BEGINNER AVG</div></div>
+                <div><div class="display text-2xl font-black stat-num text-solar-600">145</div><div class="text-[10px] text-solar-600 mono mt-0.5">APEX</div></div>
+                <div><div class="display text-2xl font-black stat-num text-sage-500">715</div><div class="text-[10px] text-ink-700/60 mono mt-0.5">LEADER AVG</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Dimension 2: Workforce AI Fluency -->
+      <article class="bg-white ring-card rounded-3xl p-8 md:p-12 mb-8">
+        <div class="grid md:grid-cols-12 gap-8">
+          <div class="md:col-span-5">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-solar-500/10 flex items-center justify-center">
+                <span class="mono font-bold text-solar-600">02</span>
+              </div>
+              <div>
+                <div class="mono text-[10px] text-ink-700/50 tracking-widest">DIMENSION</div>
+                <div class="font-bold text-lg">Workforce AI Fluency</div>
+              </div>
+            </div>
+            <h3 class="display text-3xl font-black mb-3 leading-tight">The 44× gap that decides ROI.</h3>
+            <p class="text-ink-700 mb-6 leading-relaxed">88% of AI overperformers <em>enable non-data-scientists with AI skills</em>. Only 2% of underperformers do. This is the single largest delta in the ESI dataset — and the area where Apex shows the weakest public signal.</p>
+            <div class="flex items-baseline gap-4 mb-2">
+              <span class="display text-6xl font-black stat-num">1.8</span>
+              <span class="display text-2xl text-ink-700/40 stat-num">/ 4</span>
+              <span class="chip bg-ember-500/10 text-ember-600">BEGINNER</span>
+            </div>
+            <div class="h-2 bg-cream-200 rounded-full overflow-hidden">
+              <div class="h-full bg-ember-500 score-fill" style="width: 45%;"></div>
+            </div>
+          </div>
+          <div class="md:col-span-7 space-y-5">
+            <div>
+              <div class="mono text-[10px] text-ink-700/50 tracking-widest mb-2">PUBLIC SIGNALS DETECTED</div>
+              <div class="space-y-2">
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-ember-500 mt-0.5">✗</span><span>No mention of company-wide AI training program in 2025 annual report</span></div>
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-ember-500 mt-0.5">✗</span><span>Zero LinkedIn Learning paths or Coursera partnerships announced</span></div>
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-solar-600 mt-0.5">~</span><span>Internal "AI Champions" hashtag detected on ~14 employee posts</span></div>
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-ember-500 mt-0.5">✗</span><span>No role-based AI capability framework referenced publicly</span></div>
+              </div>
+            </div>
+            <div class="bg-ember-500/5 rounded-xl p-5 border-l-4 border-ember-500">
+              <div class="mono text-[10px] text-ember-600 tracking-widest mb-2">THE CRITICAL GAP</div>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <div class="display text-3xl font-black stat-num text-ember-600">2%</div>
+                  <div class="text-[11px] text-ink-700/70 mt-1">of underperformers train non-data scientists in AI</div>
+                </div>
+                <div>
+                  <div class="display text-3xl font-black stat-num text-sage-600">88%</div>
+                  <div class="text-[11px] text-ink-700/70 mt-1">of overperformers do. Apex pattern matches the 2%.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Dimension 3: Culture & Community -->
+      <article class="bg-white ring-card rounded-3xl p-8 md:p-12 mb-8">
+        <div class="grid md:grid-cols-12 gap-8">
+          <div class="md:col-span-5">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-solar-500/10 flex items-center justify-center">
+                <span class="mono font-bold text-solar-600">03</span>
+              </div>
+              <div>
+                <div class="mono text-[10px] text-ink-700/50 tracking-widest">DIMENSION</div>
+                <div class="font-bold text-lg">Culture & Collaboration</div>
+              </div>
+            </div>
+            <h3 class="display text-3xl font-black mb-3 leading-tight">Pockets of energy. No connective tissue.</h3>
+            <p class="text-ink-700 mb-6 leading-relaxed">85% of high-ROI firms report close collaboration between AI specialists and business teams. Apex shows isolated bright spots — a 2024 internal hackathon, occasional LinkedIn posts — but no scaffolding for a sustained AI community of practice.</p>
+            <div class="flex items-baseline gap-4 mb-2">
+              <span class="display text-6xl font-black stat-num">2.2</span>
+              <span class="display text-2xl text-ink-700/40 stat-num">/ 4</span>
+              <span class="chip bg-solar-500/10 text-solar-600">IMPLEMENTER</span>
+            </div>
+            <div class="h-2 bg-cream-200 rounded-full overflow-hidden">
+              <div class="h-full bg-solar-500 score-fill" style="width: 55%;"></div>
+            </div>
+          </div>
+          <div class="md:col-span-7 space-y-5">
+            <div>
+              <div class="mono text-[10px] text-ink-700/50 tracking-widest mb-2">PUBLIC SIGNALS DETECTED</div>
+              <div class="space-y-2">
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-sage-600 mt-0.5">✓</span><span>One internal hackathon publicized in 2024 ("Apex AI Sprint")</span></div>
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-sage-600 mt-0.5">✓</span><span>Sponsor of Sydney AI Meetup (2 events in 2025)</span></div>
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-ember-500 mt-0.5">✗</span><span>No internal AI community of practice referenced on careers page</span></div>
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-ember-500 mt-0.5">✗</span><span>Glassdoor: 0 mentions of "AI training" in last 200 reviews</span></div>
+              </div>
+            </div>
+            <div class="bg-cream-50 rounded-xl p-5 border-l-4 border-solar-500">
+              <div class="mono text-[10px] text-solar-600 tracking-widest mb-2">ESI BENCHMARK</div>
+              <p class="text-sm text-ink-700"><span class="font-bold">85% of firms with high AI ROI</span> facilitate close coordination between AI experts and business teams. Among underperformers, that figure drops to <span class="font-bold">9%</span>.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Dimension 4: ROI Measurement -->
+      <article class="bg-white ring-card rounded-3xl p-8 md:p-12 mb-8">
+        <div class="grid md:grid-cols-12 gap-8">
+          <div class="md:col-span-5">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-solar-500/10 flex items-center justify-center">
+                <span class="mono font-bold text-solar-600">04</span>
+              </div>
+              <div>
+                <div class="mono text-[10px] text-ink-700/50 tracking-widest">DIMENSION</div>
+                <div class="font-bold text-lg">ROI Measurement</div>
+              </div>
+            </div>
+            <h3 class="display text-3xl font-black mb-3 leading-tight">Investment without instrumentation.</h3>
+            <p class="text-ink-700 mb-6 leading-relaxed">79% of firms with negative AI ROI lack measurement systems. Apex's 2025 annual report references AI investment six times — but never quantifies returns, productivity uplift, or adoption rates. Without a measurement layer, the AI program is invisible to the CFO.</p>
+            <div class="flex items-baseline gap-4 mb-2">
+              <span class="display text-6xl font-black stat-num">1.5</span>
+              <span class="display text-2xl text-ink-700/40 stat-num">/ 4</span>
+              <span class="chip bg-ember-500/10 text-ember-600">BEGINNER</span>
+            </div>
+            <div class="h-2 bg-cream-200 rounded-full overflow-hidden">
+              <div class="h-full bg-ember-500 score-fill" style="width: 37.5%;"></div>
+            </div>
+          </div>
+          <div class="md:col-span-7 space-y-5">
+            <div>
+              <div class="mono text-[10px] text-ink-700/50 tracking-widest mb-2">PUBLIC SIGNALS DETECTED</div>
+              <div class="space-y-2">
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-ember-500 mt-0.5">✗</span><span>No AI productivity metric in 2025 annual report or investor deck</span></div>
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-ember-500 mt-0.5">✗</span><span>No "AI adoption rate" or "tools-per-employee" KPI disclosed</span></div>
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-ember-500 mt-0.5">✗</span><span>Last earnings call: AI mentioned 11 times, ROI mentioned 0 times in same context</span></div>
+                <div class="flex items-start gap-3 text-sm"><span class="mono text-solar-600 mt-0.5">~</span><span>"Productivity uplift" language used qualitatively but not measured</span></div>
+              </div>
+            </div>
+            <div class="bg-ember-500/5 rounded-xl p-5 border-l-4 border-ember-500">
+              <div class="mono text-[10px] text-ember-600 tracking-widest mb-2">THE PATTERN</div>
+              <p class="text-sm text-ink-700">Apex matches the profile of the <span class="font-bold">79% of firms posting negative AI ROI</span>: spending without instrumentation. The CFO can't defend the line item because the line item has no number.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 4: SUPPORTING CONTEXT (yellow dims)      -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="bg-cream-50 py-20 md:py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="mb-12 max-w-3xl">
+        <div class="mono text-xs text-solar-600 tracking-widest mb-4">03 — SUPPORTING CONTEXT</div>
+        <h2 class="display text-3xl md:text-4xl font-black leading-tight mb-4">
+          Six adjacent dimensions, scored.
+        </h2>
+        <p class="text-ink-700 leading-relaxed">These dimensions matter — but they're not where Solaris lives. We score them so you can see the whole picture, then focus the conversation on the four above.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Vision -->
+        <div class="bg-white ring-card rounded-2xl p-6">
+          <div class="flex items-baseline justify-between mb-3">
+            <span class="font-bold">AI Vision &amp; Strategy</span>
+            <span class="display font-black stat-num">2.8</span>
+          </div>
+          <div class="h-1.5 bg-cream-200 rounded mb-3"><div class="h-full bg-solar-500 rounded" style="width: 70%;"></div></div>
+          <p class="text-xs text-ink-700/70">CEO has named AI a strategic pillar in two earnings calls. No public roadmap or capital allocation disclosed.</p>
+        </div>
+        <!-- Governance -->
+        <div class="bg-white ring-card rounded-2xl p-6">
+          <div class="flex items-baseline justify-between mb-3">
+            <span class="font-bold">Leadership &amp; Governance</span>
+            <span class="display font-black stat-num">2.0</span>
+          </div>
+          <div class="h-1.5 bg-cream-200 rounded mb-3"><div class="h-full bg-solar-500 rounded" style="width: 50%;"></div></div>
+          <p class="text-xs text-ink-700/70">CIO leads AI by default. No Chief AI Officer. No board-level AI committee disclosed.</p>
+        </div>
+        <!-- Risk -->
+        <div class="bg-white ring-card rounded-2xl p-6">
+          <div class="flex items-baseline justify-between mb-3">
+            <span class="font-bold">Risk &amp; Ethics</span>
+            <span class="display font-black stat-num">2.3</span>
+          </div>
+          <div class="h-1.5 bg-cream-200 rounded mb-3"><div class="h-full bg-solar-500 rounded" style="width: 57%;"></div></div>
+          <p class="text-xs text-ink-700/70">Aligned with APRA prudential guidance. No published responsible-AI framework.</p>
+        </div>
+        <!-- Use cases -->
+        <div class="bg-white ring-card rounded-2xl p-6">
+          <div class="flex items-baseline justify-between mb-3">
+            <span class="font-bold">Use Case Breadth</span>
+            <span class="display font-black stat-num">2.5</span>
+          </div>
+          <div class="h-1.5 bg-cream-200 rounded mb-3"><div class="h-full bg-solar-500 rounded" style="width: 62%;"></div></div>
+          <p class="text-xs text-ink-700/70">6 of ESI's 19 functional areas show public AI deployment. Concentrated in fraud and customer service.</p>
+        </div>
+        <!-- Tooling -->
+        <div class="bg-white ring-card rounded-2xl p-6 opacity-60">
+          <div class="flex items-baseline justify-between mb-3">
+            <span class="font-bold">Tooling &amp; Tech Stack</span>
+            <span class="display font-black stat-num text-ink-700/40">—</span>
+          </div>
+          <div class="h-1.5 bg-cream-200 rounded mb-3"></div>
+          <p class="text-xs text-ink-700/70">Out of scope. Solaris is tool-agnostic — we teach the tools you've chosen.</p>
+        </div>
+        <!-- Investment -->
+        <div class="bg-white ring-card rounded-2xl p-6 opacity-60">
+          <div class="flex items-baseline justify-between mb-3">
+            <span class="font-bold">Investment Posture</span>
+            <span class="display font-black stat-num text-ink-700/40">—</span>
+          </div>
+          <div class="h-1.5 bg-cream-200 rounded mb-3"></div>
+          <p class="text-xs text-ink-700/70">Out of scope. Solaris turns existing AI spend into measurable workforce capability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 5: THE BRIDGE (Solaris solution)         -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="bg-ink-950 text-cream-50 py-20 md:py-28 relative overflow-hidden">
+    <div class="absolute inset-0 grain opacity-20"></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 relative">
+      <div class="mb-14 max-w-3xl">
+        <div class="mono text-xs text-solar-400 tracking-widest mb-4">04 — THE BRIDGE</div>
+        <h2 class="display text-4xl md:text-5xl font-black leading-tight mb-6">
+          From Implementer to Leader, in 4 weeks per cohort.
+        </h2>
+        <p class="text-cream-50/70 leading-relaxed text-lg">
+          Solaris is the only platform built specifically to close the four gaps above. Each module maps to a measurable shift in capability — diagnosed at week zero, demonstrated at week four.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Map row -->
+        <div class="grid md:grid-cols-12 gap-4 items-stretch">
+          <div class="md:col-span-3 bg-cream-50/5 rounded-xl p-5 border-l-4 border-ember-500">
+            <div class="mono text-[10px] text-ember-500 mb-1">GAP 01</div>
+            <div class="font-bold text-sm">Talent density 5× behind leaders</div>
+          </div>
+          <div class="hidden md:flex md:col-span-1 items-center justify-center text-cream-50/30">→</div>
+          <div class="md:col-span-8 bg-cream-50/5 rounded-xl p-5 border-l-4 border-solar-500">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-solar-500/20 flex items-center justify-center flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-solar-400"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+              </div>
+              <div>
+                <div class="mono text-[10px] text-solar-400 mb-1">SOLARIS · CAPABILITY ASSESSMENT</div>
+                <p class="text-sm text-cream-50/80 leading-relaxed">Diagnose AI fluency by role across the workforce. Identifies the jobs-to-be-done where AI uplift is highest-leverage. Surfaces hidden talent before you hire externally.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-4 items-stretch">
+          <div class="md:col-span-3 bg-cream-50/5 rounded-xl p-5 border-l-4 border-ember-500">
+            <div class="mono text-[10px] text-ember-500 mb-1">GAP 02</div>
+            <div class="font-bold text-sm">Workforce fluency at 8% vs 88% benchmark</div>
+          </div>
+          <div class="hidden md:flex md:col-span-1 items-center justify-center text-cream-50/30">→</div>
+          <div class="md:col-span-8 bg-cream-50/5 rounded-xl p-5 border-l-4 border-solar-500">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-solar-500/20 flex items-center justify-center flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-solar-400"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+              <div>
+                <div class="mono text-[10px] text-solar-400 mb-1">SOLARIS · 4-WEEK ACCELERATOR</div>
+                <p class="text-sm text-cream-50/80 leading-relaxed">Lead the Way → AI for Your Role → Building → Showcasing Work. Personalized learning paths per role. Mandatory courses, capstone projects, demo presentations. Customizable per organization.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-4 items-stretch">
+          <div class="md:col-span-3 bg-cream-50/5 rounded-xl p-5 border-l-4 border-ember-500">
+            <div class="mono text-[10px] text-ember-500 mb-1">GAP 03</div>
+            <div class="font-bold text-sm">No connective tissue across pockets of activity</div>
+          </div>
+          <div class="hidden md:flex md:col-span-1 items-center justify-center text-cream-50/30">→</div>
+          <div class="md:col-span-8 bg-cream-50/5 rounded-xl p-5 border-l-4 border-solar-500">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-solar-500/20 flex items-center justify-center flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-solar-400"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              </div>
+              <div>
+                <div class="mono text-[10px] text-solar-400 mb-1">SOLARIS · CAMPUS COMMUNITY</div>
+                <p class="text-sm text-cream-50/80 leading-relaxed">Cohort-based community platform connects internal AI champions across business units. Showcase work, share patterns, build the culture of learning that the ESI study identifies as the #1 leader trait.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-12 gap-4 items-stretch">
+          <div class="md:col-span-3 bg-cream-50/5 rounded-xl p-5 border-l-4 border-ember-500">
+            <div class="mono text-[10px] text-ember-500 mb-1">GAP 04</div>
+            <div class="font-bold text-sm">No measurement → CFO can't defend the spend</div>
+          </div>
+          <div class="hidden md:flex md:col-span-1 items-center justify-center text-cream-50/30">→</div>
+          <div class="md:col-span-8 bg-cream-50/5 rounded-xl p-5 border-l-4 border-solar-500">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-lg bg-solar-500/20 flex items-center justify-center flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-solar-400"><line x1="3" y1="3" x2="3" y2="21"/><line x1="3" y1="21" x2="21" y2="21"/><polyline points="7 14 11 10 15 14 21 8"/></svg>
+              </div>
+              <div>
+                <div class="mono text-[10px] text-solar-400 mb-1">SOLARIS · AI OPS DASHBOARD</div>
+                <p class="text-sm text-cream-50/80 leading-relaxed">Executive view of team AI adoption, improvement areas, and automation opportunities. Per-employee progress tracking. Governance and usage analytics across teams. Turns invisible spend into a defensible KPI.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Outcome -->
+      <div class="mt-16 grid md:grid-cols-3 gap-4">
+        <div class="bg-cream-50/5 rounded-2xl p-6 border border-cream-50/10">
+          <div class="mono text-[10px] text-solar-400 mb-2 tracking-widest">WEEK 0</div>
+          <div class="display text-2xl font-black mb-2">Diagnose</div>
+          <p class="text-sm text-cream-50/60 leading-relaxed">Capability assessment baseline by role and business unit.</p>
+        </div>
+        <div class="bg-cream-50/5 rounded-2xl p-6 border border-cream-50/10">
+          <div class="mono text-[10px] text-solar-400 mb-2 tracking-widest">WEEKS 1–4</div>
+          <div class="display text-2xl font-black mb-2">Develop</div>
+          <p class="text-sm text-cream-50/60 leading-relaxed">Cohort accelerator. Role-specific learning paths. Capstone shipped.</p>
+        </div>
+        <div class="bg-cream-50/5 rounded-2xl p-6 border border-cream-50/10">
+          <div class="mono text-[10px] text-solar-400 mb-2 tracking-widest">ONGOING</div>
+          <div class="display text-2xl font-black mb-2">Govern</div>
+          <p class="text-sm text-cream-50/60 leading-relaxed">AI Ops dashboard reports adoption, uplift, and risk to the C-suite.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SECTION 6: CTA                                    -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <section class="bg-solar-500 py-20 md:py-28 relative overflow-hidden">
+    <div class="absolute inset-0 grain opacity-20"></div>
+    <div class="max-w-5xl mx-auto px-6 lg:px-12 text-center relative">
+      <div class="mono text-xs text-ink-950/60 tracking-widest mb-6">FOR APEX FINANCIAL GROUP</div>
+      <h2 class="display text-4xl md:text-6xl font-black leading-tight mb-8 text-ink-950">
+        Get the version of this report scored on <em>your</em> company.
+      </h2>
+      <p class="text-lg text-ink-950/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+        We'll spend a week on public signals — LinkedIn, annual reports, press, GitHub — and walk you through where your workforce sits on the ESI maturity curve. 30-minute discovery call to see if it's a fit.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="https://buildclub.ai" target="_blank" rel="noopener" class="bg-ink-950 text-cream-50 font-bold px-8 py-4 rounded-full hover:bg-ink-900 transition-colors text-sm tracking-wide">
+          Book a discovery call →
+        </a>
+        <a href="https://solaris.buildclub.ai" target="_blank" rel="noopener" class="bg-cream-50/20 backdrop-blur border border-ink-950/20 text-ink-950 font-bold px-8 py-4 rounded-full hover:bg-cream-50/30 transition-colors text-sm tracking-wide">
+          Explore Solaris
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- FOOTER                                            -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <footer class="bg-ink-950 text-cream-50/60 py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-7 h-7 rounded-full bg-gradient-to-br from-solar-300 to-solar-600 flex items-center justify-center">
+              <span class="display text-ink-950 font-black text-xs">S</span>
+            </div>
+            <span class="font-bold text-cream-50">Solaris</span><span class="text-cream-50/40 text-sm">by Build Club</span>
+          </div>
+          <p class="text-xs leading-relaxed">The capability platform for organizations turning AI adoption into a measurable workforce uplift.</p>
+        </div>
+        <div>
+          <div class="font-bold text-cream-50 mb-3 text-sm">Methodology</div>
+          <p class="text-xs leading-relaxed">Capability scores derived from publicly observable signals only. Benchmarks via ESI ThoughtLab "Driving ROI Through AI" (Sep 2020), n=1,200 firms across 12 industries and 15 countries with combined revenue of $15.5T.</p>
+        </div>
+        <div>
+          <div class="font-bold text-cream-50 mb-3 text-sm">Sample report</div>
+          <p class="text-xs leading-relaxed mb-2">"Apex Financial Group" is a fictional composite for illustration. Public signals listed are representative of typical patterns, not actual findings.</p>
+          <span class="chip bg-solar-500/10 text-solar-400 border border-solar-500/20">DEMO ONLY</span>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-cream-50/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="mono text-[10px] text-cream-50/40">© 2026 Build Club · solaris.buildclub.ai</div>
+        <div class="mono text-[10px] text-cream-50/40">REPORT.v1.0 · GENERATED 04/2026</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
